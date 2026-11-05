@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Persona de Cliente — Will Tour</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="top">
+    <div>
+      <p class="brand-eyebrow">Will Tour SRS &middot; Viagens e Turismo</p>
+      <h1>Persona de Cliente</h1>
+    </div>
+    <div class="top-meta">
+      Fonte: <b>API Pax Pro</b> (clientes &times; vendas, ao vivo)<br>
+      Atualizado em <b id="gerado-em">—</b>
+    </div>
+  </header>
+
+  <p class="section-note" id="status">Carregando dados do Pax Pro…</p>
+
+  <section>
+    <div class="section-head"><h2>Persona Will Tour</h2></div>
+    <div class="persona-card" id="persona-card"></div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Panorama do cruzamento</h2>
+      <span class="section-note">clientes pessoa física identificados pelos viajantes de cada venda</span>
+    </div>
+    <div class="kpis" id="kpis"></div>
+  </section>
+
+  <section class="grid-2">
+    <div>
+      <div class="section-head"><h2>Distribuição de gênero</h2><span class="section-note" id="genero-note"></span></div>
+      <div class="card donut-card" id="genero-card"></div>
+    </div>
+    <div>
+      <div class="section-head"><h2>Faixa etária</h2><span class="section-note" id="idade-note"></span></div>
+      <div class="card" id="idade-card"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Destinos mais vendidos</h2>
+      <span class="section-note">passagens aéreas por aeroporto de destino &middot; calculado pelo itinerário, onde o passageiro fica mais tempo</span>
+    </div>
+    <div class="card" id="destinos-card"></div>
+  </section>
+
+  <section class="grid-2">
+    <div>
+      <div class="section-head"><h2>Gasto médio por faixa etária</h2></div>
+      <div class="card table-wrap"><table id="idade-valor-table"></table></div>
+    </div>
+    <div>
+      <div class="section-head"><h2>Gasto médio por gênero</h2></div>
+      <div class="card table-wrap"><table id="genero-valor-table"></table></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>O que este relatório não permite concluir</h2></div>
+    <div class="caveat-box" id="caveat-box"></div>
+  </section>
+
+  <footer>
+    <span>Will Tour SRS Viagens e Turismo LTDA &middot; Santa Rita do Sapucaí &ndash; MG</span>
+    <span>Dados ao vivo da API do Pax Pro</span>
+  </footer>
+
+</div>
+
+<script type="module" src="script.js?v=20261104"></script>
+</body>
+</html>

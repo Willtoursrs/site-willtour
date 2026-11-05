@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P6GJ9T2P6V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-P6GJ9T2P6V');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Área Restrita | Will Tour SRS</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandNavy: '#0a2240',
+            brandTeal: '#3aa394',
+            brandTealDark: '#2c7d71',
+            brandGold: '#ffd700',
+            bgGray: '#f8fafc',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            montserrat: ['Montserrat', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Identity Services -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+<script>
+  // Ao recarregar, sempre comeca no topo (nao volta para onde estava rolado).
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.scrollTo(0, 0);
+</script>
+</head>
+
+<body class="bg-white m-0 p-0 font-sans antialiased overflow-x-hidden">
+
+  <!-- CABEÇALHO -->
+  <header class="sticky top-0 z-40 w-full bg-brandNavy/95 backdrop-blur-md border-b border-slate-800 text-white shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="https://drive.google.com/thumbnail?id=1ifVGnIZV6_0btcCbRdbY15WjkzhRTo1N&sz=w500"
+             alt="Will Tour SRS" class="h-10 sm:h-12 object-contain">
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 font-semibold text-sm">
+        <a href="quem-somos.html" class="text-slate-200 hover:text-brandTeal transition-colors">Quem Somos</a>
+        <a href="index.html#quem-atendemos" class="text-slate-200 hover:text-brandTeal transition-colors">Quem Atendemos</a>
+        <a href="index.html#nossos-servicos" class="text-slate-200 hover:text-brandTeal transition-colors">Nossos Serviços</a>
+        <a href="ofertas.html" class="text-slate-200 hover:text-brandTeal transition-colors">Ofertas</a>
+      </nav>
+
+      <button id="mobile-btn" class="md:hidden text-white focus:outline-none" aria-label="Abrir Menu">
+        <i class="fa-solid fa-bars text-xl"></i>
+      </button>
+    </div>
+
+    <div id="mobile-nav" class="hidden md:hidden bg-brandNavy border-t border-slate-800 px-4 py-4 space-y-3 font-semibold text-sm">
+      <a href="quem-somos.html" class="block text-slate-200 hover:text-brandTeal py-1">Quem Somos</a>
+      <a href="index.html#nossos-servicos" class="block text-slate-200 hover:text-brandTeal py-1">Nossos Serviços</a>
+      <a href="index.html#quem-atendemos" class="block text-slate-200 hover:text-brandTeal py-1">Quem Atendemos</a>
+      <a href="ofertas.html" class="block text-slate-200 hover:text-brandTeal py-1">Ofertas</a>
+    </div>
+  </header>
+
+  <!-- ÁREA RESTRITA -->
+  <main class="w-full bg-slate-50 py-16 flex justify-center min-h-[70vh]">
+    <div id="container" class="w-full max-w-[860px] px-4 md:px-8 flex flex-col transition-all duration-300">
+
+      <div class="bg-brandNavy text-white rounded-3xl p-8 md:p-14 text-center shadow-md flex flex-col items-center gap-4 mb-8 w-full">
+        <span class="bg-teal-500/10 text-brandTeal text-xs font-extrabold tracking-wider uppercase px-4 py-2 rounded-full border border-teal-500/20">
+          <i class="fa-solid fa-lock mr-1"></i> Área Restrita
+        </span>
+        <h5 class="font-extrabold text-3xl md:text-5xl tracking-tight leading-tight mt-2">Acesso restrito a usuários autorizados.</h5>
+      </div>
+
+      <div class="bg-white rounded-3xl border border-slate-200/60 p-6 md:p-12 shadow-md">
+
+        <!-- ESTADO: DESLOGADO -->
+        <div id="login-box" class="flex flex-col items-center gap-5 py-6">
+          <div id="g_id_onload"
+               data-client_id="193855139914-i9is5iec3q57oh5pmtuavk3sg12k13f8.apps.googleusercontent.com"
+               data-callback="handleGoogleLogin"
+               data-auto_prompt="false"></div>
+          <div class="g_id_signin"
+               data-type="standard"
+               data-shape="pill"
+               data-theme="filled_blue"
+               data-text="signin_with"
+               data-size="large"
+               data-locale="pt-BR"></div>
+
+          <!-- Modo local (file://): o Google não aceita login fora de http/https -->
+          <button id="login-local" onclick="loginLocal()" class="hidden inline-flex items-center gap-2 text-sm text-white bg-brandTeal hover:bg-brandTealDark px-6 py-3 rounded-full font-bold transition-colors">
+            <i class="fa-solid fa-laptop-code"></i> Entrar (modo local de teste)
+          </button>
+          <script>
+            if (location.protocol === 'file:') {
+              document.getElementById('g_id_onload').remove();
+              document.querySelector('.g_id_signin').remove();
+              document.getElementById('login-local').classList.remove('hidden');
+            }
+          </script>
+
+          <p id="login-erro" class="hidden text-center text-red-600 text-sm font-semibold bg-red-50 border border-red-200 rounded-xl px-4 py-3"></p>
+          <a id="outra-conta" href="https://accounts.google.com/AddSession" target="_blank" rel="noopener"
+             class="hidden text-sm font-bold text-brandTeal hover:text-brandNavy underline">
+            Entrar com outra conta Google
+          </a>
+          <p class="text-slate-400 text-xs text-center">Acesso exclusivo para a equipe Will Tour SRS.</p>
+        </div>
+
+        <!-- ESTADO: LOGADO -->
+        <div id="area-relatorios" class="hidden">
+          <div class="flex items-center justify-between flex-wrap gap-4 mb-6 pb-6 border-b border-slate-200">
+            <div class="flex items-center gap-3">
+              <img id="user-foto" class="w-11 h-11 rounded-full border-2 border-brandTeal" alt="" referrerpolicy="no-referrer">
+              <div>
+                <div id="user-nome" class="font-bold text-brandNavy"></div>
+                <div id="user-email" class="text-xs text-slate-500"></div>
+              </div>
+            </div>
+            <button onclick="sair()" class="inline-flex items-center gap-2 text-sm text-white bg-brandNavy hover:bg-brandTeal px-4 py-2 rounded-full font-bold transition-colors">
+              <i class="fa-solid fa-right-from-bracket"></i> Sair
+            </button>
+          </div>
+
+          <!-- Abas de relatórios (gerado pelo JS) -->
+          <div id="abas" class="flex flex-wrap gap-2 mb-4"></div>
+
+          <iframe id="relatorio-frame"
+                  class="w-full h-[70vh] min-h-[500px] rounded-xl border border-slate-200 bg-slate-50"
+                  scrolling="no"
+                  onload="ajustarAltura(this)"
+                  allowfullscreen></iframe>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="w-full bg-brandNavy text-white py-14 border-t border-slate-800 flex justify-center">
+    <div class="w-full max-w-[1140px] px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
+      <div class="flex flex-col items-center md:items-start">
+        <img src="https://drive.google.com/thumbnail?id=1bmevpimE60RymTV-SbeyMaf5Q9GQmsXr&sz=w500"
+             alt="Ministério do Turismo - CADASTUR" class="w-48 sm:w-52 h-auto object-contain">
+      </div>
+
+      <div class="flex flex-col items-center gap-3">
+        <img src="https://drive.google.com/thumbnail?id=1ifVGnIZV6_0btcCbRdbY15WjkzhRTo1N&sz=w500"
+             alt="Will Tour SRS" class="h-12 object-contain">
+        <p class="text-slate-400 text-xs leading-relaxed max-w-xs text-center">
+          Rua Coronel Francisco Palma, 27 - Centro<br>Santa Rita do Sapucaí/MG
+        </p>
+        <div class="text-slate-500 text-xs font-semibold">CNPJ: 53.973.458/0001-93</div>
+      </div>
+
+      <div class="flex flex-col items-center md:items-end gap-3.5">
+        <div class="flex gap-4 text-xl text-slate-400">
+          <a href="https://www.instagram.com/willtoursrs" target="_blank" rel="noopener" class="hover:text-brandTeal transition-colors"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/Willtoursrs" target="_blank" rel="noopener" class="hover:text-brandTeal transition-colors"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://wa.me/5535984231966" target="_blank" rel="noopener" class="hover:text-brandTeal transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+        <div class="flex flex-col items-center md:items-end gap-1 text-xs">
+          <a href="mailto:contato@willtoursrs.com.br" class="text-slate-300 hover:text-brandTeal transition-colors">contato@willtoursrs.com.br</a>
+          <span class="text-slate-400">WhatsApp: (35) 98423-1966</span>
+        </div>
+        <div class="flex flex-col items-center md:items-end gap-1 mt-2">
+          <span class="text-slate-500 text-[10px] block">© 2026 Will Tour SRS. Todos os direitos reservados.</span>
+          <div class="flex gap-3 mt-1">
+            <a href="quem-somos.html" class="text-slate-400 hover:text-brandTeal underline text-[11px]">Quem Somos</a>
+            <span class="text-slate-600 text-[11px]">|</span>
+            <a href="politica.html" class="text-slate-400 hover:text-brandTeal underline text-[11px]">Política de Privacidade</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ================== CONFIGURAÇÃO ==================
+    // E-mails que podem entrar (controle de interface).
+    // A proteção REAL é o compartilhamento da planilha no Google Drive.
+    const PERMITIDOS = [
+      "will@willtoursrs.com.br",
+      "willian.mepi@gmail.com"
+    ];
+
+    // Relatórios: páginas HTML dentro deste site.
+    const RELATORIOS = [
+      { nome: "Painel de Vendas", url: "dashboard/index.html" },
+      { nome: "Persona",          url: "persona/index.html" }
+    ];
+    // ==================================================
+
+    function decodeJwt(token) {
+      const base64 = token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/');
+      const json = decodeURIComponent(
+        atob(base64).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join('')
+      );
+      return JSON.parse(json);
+    }
+
+    function handleGoogleLogin(response) {
+      const user = decodeJwt(response.credential);
+      const erro = document.getElementById('login-erro');
+
+      if (!user.email_verified || !PERMITIDOS.includes(user.email.toLowerCase())) {
+        erro.textContent = `A conta ${user.email} não tem permissão de acesso.`;
+        erro.classList.remove('hidden');
+        // Esquece a conta recusada para o Google mostrar o seletor de contas na próxima tentativa
+        if (window.google) {
+          google.accounts.id.disableAutoSelect();
+          google.accounts.id.revoke(user.email, () => {});
+        }
+        document.getElementById('outra-conta').classList.remove('hidden');
+        return;
+      }
+
+      // Mantém o login ao recarregar a página (até o token expirar, ~1h)
+      try { sessionStorage.setItem('wt_credential', response.credential); } catch (e) {}
+
+      erro.classList.add('hidden');
+      document.getElementById('user-nome').textContent = user.name;
+      document.getElementById('user-email').textContent = user.email;
+      document.getElementById('user-foto').src = user.picture;
+
+      document.getElementById('login-box').classList.add('hidden');
+      document.getElementById('area-relatorios').classList.remove('hidden');
+      document.getElementById('container').classList.replace('max-w-[860px]', 'max-w-[1280px]');
+
+      montarAbas();
+    }
+
+    // Simula um login do Google para testar a página aberta via file://
+    function loginLocal() {
+      if (location.protocol !== 'file:') return;
+      const b64 = obj => btoa(JSON.stringify(obj)).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+      const payload = {
+        email: PERMITIDOS[0],
+        email_verified: true,
+        name: 'Modo Local',
+        picture: 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" fill="#3aa394"/><text x="20" y="26" font-size="16" text-anchor="middle" fill="#fff" font-family="sans-serif">WT</text></svg>'),
+        exp: Math.floor(Date.now() / 1000) + 3600
+      };
+      handleGoogleLogin({ credential: b64({ alg: 'none' }) + '.' + b64(payload) + '.' });
+    }
+
+    function montarAbas() {
+      const abas = document.getElementById('abas');
+      abas.innerHTML = '';
+      RELATORIOS.forEach((r, i) => {
+        const btn = document.createElement('button');
+        btn.textContent = r.nome;
+        btn.className = 'aba px-4 py-2 rounded-full text-sm font-bold border transition-colors';
+        btn.onclick = () => abrirRelatorio(i);
+        abas.appendChild(btn);
+      });
+      abrirRelatorio(0);
+    }
+
+    function abrirRelatorio(i) {
+      document.getElementById('relatorio-frame').src = RELATORIOS[i].url;
+      document.querySelectorAll('.aba').forEach((b, j) => {
+        b.className = 'aba px-4 py-2 rounded-full text-sm font-bold border transition-colors ' +
+          (i === j ? 'bg-brandTeal text-white border-brandTeal'
+                   : 'bg-white text-brandNavy border-slate-300 hover:border-brandTeal');
+      });
+    }
+
+    // Faz o iframe ter a altura do conteúdo do relatório (evita scroll duplo).
+    // Só funciona com o mesmo domínio (localhost / site publicado); em file:// mantém a altura fixa.
+    let observadorAltura;
+    function ajustarAltura(frame) {
+      if (observadorAltura) observadorAltura.disconnect();
+      let doc;
+      try { doc = frame.contentDocument; } catch (e) {}
+      if (!doc || !doc.body || frame.src === 'about:blank') {
+        frame.scrolling = 'auto';
+        return;
+      }
+      frame.scrolling = 'no';
+      frame.classList.remove('h-[70vh]', 'min-h-[500px]');
+      const atualizar = () => { frame.style.height = doc.documentElement.scrollHeight + 'px'; };
+      observadorAltura = new ResizeObserver(atualizar);
+      observadorAltura.observe(doc.body);
+      atualizar();
+    }
+
+    function sair() {
+      try { sessionStorage.removeItem('wt_credential'); } catch (e) {}
+      if (window.google) google.accounts.id.disableAutoSelect();
+      document.getElementById('relatorio-frame').src = 'about:blank';
+      location.reload();
+    }
+
+    // Restaura a sessão salva, se o token ainda for válido
+    (function restaurarSessao() {
+      let credential = null;
+      try { credential = sessionStorage.getItem('wt_credential'); } catch (e) {}
+      if (!credential) return;
+      try {
+        if (decodeJwt(credential).exp * 1000 > Date.now()) {
+          handleGoogleLogin({ credential });
+          return;
+        }
+      } catch (e) {}
+      try { sessionStorage.removeItem('wt_credential'); } catch (e) {}
+    })();
+
+    // Menu mobile
+    document.getElementById('mobile-btn').addEventListener('click', () => {
+      document.getElementById('mobile-nav').classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
