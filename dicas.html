@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <!-- Cole este bloco imediatamente abaixo da tag <head> do seu arquivo HTML -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P6GJ9T2P6V"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      if (location.protocol === 'file:' || /^(localhost|127\.0\.0\.1)$/.test(location.hostname)) { window['ga-disable-G-P6GJ9T2P6V'] = true; } // testes locais não contam
+      gtag('config', 'G-P6GJ9T2P6V');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dicas de Viagem | Will Tour SRS</title>
+    
+    <!-- Link para folha de estilo do widget de buscas da Befly -->
+    <link rel="stylesheet" href="https://static.onertravel.com/widget/search/production/styles.css">
+    
+    <!-- Google Fonts: Inter para interface moderna e Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para os Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="css/style.css?v=20261126">
+    
+    <!-- Tailwind CSS para estilização de alto nível -->
+    <script src="https://cdn.tailwindcss.com"></script>
+      
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandNavy: '#0a2240',
+                        brandTeal: '#3aa394',
+                        brandTealDark: '#2c7d71',
+                        brandGold: '#ffd700',
+                        bgGray: '#f8fafc',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+  </head>
+
+<body class="bg-white m-0 p-0 font-sans antialiased overflow-x-hidden">
+
+    <!-- BOTÃO FLUTUANTE DO WHATSAPP -->
+    <a 
+        href="https://wa.me/5535984231966?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20de%20viagem%20com%20a%20Will%20Tour." 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="whatsapp-pulse fixed bottom-6 right-6 z-50 bg-[#25D366] text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300"
+        title="Fale Conosco no WhatsApp"
+    >
+        <!-- Ícone Oficial de Alta Fidelidade do WhatsApp -->
+        <svg class="w-7 h-7 md:w-8 md:h-8 fill-current" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L3 480l117.7-30.9c32.4 17.7 68.9 27 106.2 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+    </a>
+
+    <!-- CABEÇALHO DE NAVEGAÇÃO FIXO (STICKY) -->
+    <header class="sticky top-0 z-40 w-full bg-brandNavy/95 backdrop-blur-md border-b border-slate-800 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex justify-between items-center">
+            
+            <!-- Logo Corporativo com a transparência do Drive -->
+            <a href="index.html" class="flex items-center gap-2">
+                <img 
+                    src="img/site/1ifVGnIZV6_0btcCbRdbY15WjkzhRTo1N.webp" 
+                    alt="Will Tour SRS" 
+                    class="h-10 sm:h-12 object-contain"
+                >
+            </a>
+
+            <!-- Menu de Links do Site Organizado na Nova Ordem -->
+            <nav class="hidden md:flex items-center gap-8 font-semibold text-sm">
+                <a href="index.html">Início</a>
+                <a href="quem-somos.html" id="#quem-somos">Quem Somos</a>
+               <div class="menu-drop">
+                   <a href="javascript:void(0)" id="#ofertas" style="cursor:default">Promoções <i class="fa-solid fa-chevron-down text-[10px] ml-0.5"></i></a>
+                   <div class="menu-drop-lista">
+                     <a href="circuitos.html"><i class="fa-solid fa-earth-europe"></i>Grupos - Circuitos</a>
+                     <a href="ofertas.html"><i class="fa-solid fa-tags"></i>Promoções</a>
+                   </div>
+                 </div>
+                 <div class="menu-drop">
+                   <a href="javascript:void(0)" style="cursor:default">Blog de Dicas <i class="fa-solid fa-chevron-down text-[10px] ml-0.5"></i></a>
+                   <div class="menu-drop-lista">
+                     <a href="dicas.html"><i class="fa-solid fa-lightbulb"></i>Dicas para sua viagem</a>
+                     <a href="feriados.html"><i class="fa-regular fa-calendar"></i>Próximos feriados</a>
+                   </div>
+                 </div>
+            </nav>
+
+            <!-- Botão Faça um orçamento Rápido -->
+            <div class="flex items-center gap-4">
+                <a 
+                    href="https://wa.me/5535984231966?text=Ol%C3%A1!%20Gostaria%20de%20planejar%20minha%20viagem%20com%20a%20Will%20Tour." 
+                    target="_blank" 
+                    class="bg-brandTeal hover:bg-brandTealDark text-white px-4 sm:px-6 py-2 rounded-full font-bold text-xs sm:text-sm transition-all duration-300 shadow-lg"
+                >
+                    Faça um orçamento
+                </a>
+                
+                <!-- Botão Menu Hamburguer para Telas Pequenas -->
+                <button id="mobile-btn" class="md:hidden text-white focus:outline-none" aria-label="Abrir Menu">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Retrátil no Mobile Organizado na Nova Ordem -->
+        <div id="mobile-nav" class="hidden md:hidden bg-brandNavy border-t border-slate-800 px-4 py-4 space-y-3 font-semibold text-sm">
+            <a href="index.html" class="block text-slate-200 hover:text-brandTeal py-1">Início</a>
+            <a href="quem-somos.html" id="quem-somos" target="_self" class="block text-slate-200 hover:text-brandTeal py-1">Quem Somos</a>
+            <a href="circuitos.html" class="block text-slate-200 hover:text-brandTeal py-1">Grupos - Circuitos</a>
+            <a href="ofertas.html" id="ofertas" class="block text-slate-200 hover:text-brandTeal py-1">Promoções</a>
+            <a href="dicas.html" class="block text-slate-200 hover:text-brandTeal py-1">Dicas para sua viagem</a>
+            <a href="feriados.html" class="block text-slate-200 hover:text-brandTeal py-1">Próximos feriados</a>
+        </div>
+    </header>
+
+    <!-- PÁGINA: DICAS DE VIAGEM -->
+    <main class="w-full bg-slate-50 pt-5 pb-16">
+      <div class="w-full max-w-[1140px] px-4 md:px-8 mx-auto flex flex-col gap-12">
+        <div class="bg-brandNavy text-white rounded-3xl px-6 py-6 md:px-10 md:py-8 text-center shadow-md flex flex-col items-center gap-2">
+          <span class="bg-teal-500/10 text-brandTeal text-xs font-extrabold tracking-wider uppercase px-4 py-2 rounded-full border border-teal-500/20">Blog</span>
+          <h1 class="font-sans font-extrabold text-2xl md:text-4xl tracking-tight leading-tight max-w-3xl mt-1">Dicas para viajar melhor</h1>
+          <p class="text-slate-300 text-sm md:text-base max-w-2xl font-medium leading-relaxed">Tudo o que você precisa saber antes de viajar, de quem é daqui de Santa Rita do Sapucaí.</p>
+        </div>
+        <!-- 3. SAINDO DE SANTA RITA -->
+        <section class="flex flex-col gap-6">
+          <div class="text-center">
+            <span class="text-brandTeal text-xs font-extrabold tracking-widest uppercase bg-teal-50 px-4 py-2 rounded-full border border-teal-100/50">Dica de quem é daqui</span>
+            <h2 class="text-brandNavy text-2xl md:text-3xl font-extrabold tracking-tight mt-4">Está em Santa Rita do Sapucaí? Qual aeroporto usar?</h2>
+            <p class="text-slate-500 text-sm md:text-base max-w-2xl mx-auto mt-2">A pergunta que todo cliente faz. Distâncias e tempos aproximados de carro.</p>
+          </div>
+          <div class="flex justify-center">
+            <button type="button" id="abrir-aeroportos" class="inline-flex items-center justify-center gap-2.5 bg-brandTeal hover:bg-brandTealDark text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-md text-sm md:text-base">
+              <i class="fa-solid fa-plane-departure"></i>
+              <span>Confira aqui sobre os aeroportos, distância e estacionamento</span>
+            </button>
+          </div>
+          <!-- Pop-up dos aeroportos (rola por dentro, principalmente no celular) -->
+          <div id="modal-aeroportos" class="oferta-modal" role="dialog" aria-modal="true" aria-label="Aeroportos saindo de Santa Rita">
+            <div class="oferta-modal-box" style="max-width:1040px">
+              <button type="button" class="oferta-modal-fechar" aria-label="Fechar">&times;</button>
+              <div class="bg-slate-50 p-6 md:p-8" style="display:block">
+                <h3 class="text-brandNavy text-xl md:text-2xl font-extrabold tracking-tight pr-12 mb-1">Saindo de Santa Rita: qual aeroporto usar?</h3>
+                <p class="text-slate-500 text-sm mb-5">Distâncias e tempos aproximados de carro.</p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white rounded-2xl border border-slate-200/70 p-6 shadow-sm flex flex-col gap-2">
+                  <p class="font-extrabold text-brandNavy text-lg">Guarulhos (SP - GRU)</p>
+                  <p class="text-slate-600 text-sm"><i class="fa-solid fa-car text-brandTeal mr-1"></i> 221 km · aprox. 3h25</p>
+                  <p class="text-slate-600 text-sm">O maior do país: mais voos internacionais e mais opções de horário. Ideal para Europa, EUA e Nordeste.</p>
+                  <div class="mt-3 pt-3 border-t border-dashed border-slate-200 flex flex-col gap-2">
+                    <p class="text-xs font-extrabold text-brandTeal tracking-wider uppercase"><i class="fa-solid fa-square-parking mr-1"></i> Estacionamentos recomendados</p>
+                    <div class="text-sm text-slate-600"><a href="https://indigoneo.com.br/pt/booking/99980448" target="_blank" rel="noopener" class="font-bold text-brandNavy hover:text-brandTeal underline decoration-dotted underline-offset-2">Oficial do Aeroporto <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-brandTeal"></i></a><br>Maior custo, maior comodidade.</div>
+                    <div class="text-sm text-slate-600"><a href="https://www.urbanparkgru.com.br/" target="_blank" rel="noopener" class="font-bold text-brandNavy hover:text-brandTeal underline decoration-dotted underline-offset-2">Urban Park <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-brandTeal"></i></a><br>Menor custo. A 10 min do aeroporto, com transfer. Reserve, estacione e leve a chave.</div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-2xl border border-slate-200/70 p-6 shadow-sm flex flex-col gap-2">
+                  <p class="font-extrabold text-brandNavy text-lg">Viracopos (Campinas - VCP)</p>
+                  <p class="text-slate-600 text-sm"><i class="fa-solid fa-car text-brandTeal mr-1"></i> 238 km · aprox. 3h30</p>
+                  <p class="text-slate-600 text-sm">Base da Azul: muitos voos nacionais, trânsito mais tranquilo que São Paulo e voos para Orlando e Lisboa.</p>
+                  <div class="mt-3 pt-3 border-t border-dashed border-slate-200 flex flex-col gap-2">
+                    <p class="text-xs font-extrabold text-brandTeal tracking-wider uppercase"><i class="fa-solid fa-square-parking mr-1"></i> Estacionamentos recomendados</p>
+                    <div class="text-sm text-slate-600"><a href="https://www.zuldigital.com.br/estapar-reserva/aeroportos/23" target="_blank" rel="noopener" class="font-bold text-brandNavy hover:text-brandTeal underline decoration-dotted underline-offset-2">Oficial do Aeroporto <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-brandTeal"></i></a><br>Maior custo, maior comodidade.</div>
+                    <div class="text-sm text-slate-600"><a href="https://www.virapark.com.br/" target="_blank" rel="noopener" class="font-bold text-brandNavy hover:text-brandTeal underline decoration-dotted underline-offset-2">Vira Park <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-brandTeal"></i></a><br>Menor custo. A 6 min do aeroporto, com transfer. Reserve, estacione e leve a chave.</div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-2xl border border-slate-200/70 p-6 shadow-sm flex flex-col gap-2">
+                  <p class="font-extrabold text-brandNavy text-lg">Congonhas (SP - CGH)</p>
+                  <p class="text-slate-600 text-sm"><i class="fa-solid fa-car text-brandTeal mr-1"></i> 245 km · aprox. 4h19</p>
+                  <p class="text-slate-600 text-sm">No meio de São Paulo: só voos nacionais, ótimo para viagens rápidas pelo Brasil. Atenção ao trânsito da capital.</p>
+                  <div class="mt-3 pt-3 border-t border-dashed border-slate-200 flex flex-col gap-2">
+                    <p class="text-xs font-extrabold text-brandTeal tracking-wider uppercase"><i class="fa-solid fa-square-parking mr-1"></i> Estacionamentos recomendados</p>
+                    <div class="text-sm text-slate-600"><a href="https://www.zuldigital.com.br/estapar-reserva/escolha-data-e-horarios/36" target="_blank" rel="noopener" class="font-bold text-brandNavy hover:text-brandTeal underline decoration-dotted underline-offset-2">Oficial do Aeroporto <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-brandTeal"></i></a><br>Maior custo, maior comodidade.</div>
+                    <div class="text-sm text-slate-600"><a href="https://www.grandparking.com.br/" target="_blank" rel="noopener" class="font-bold text-brandNavy hover:text-brandTeal underline decoration-dotted underline-offset-2">Grand Parking <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-brandTeal"></i></a><br>Menor custo. A 3 min do aeroporto, com transfer. Reserve, estacione e leve a chave.</div>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+          <script>
+            (function () {
+              var m = document.getElementById('modal-aeroportos');
+              function fecha() { m.classList.remove('aberto'); document.body.style.overflow = ''; }
+              document.getElementById('abrir-aeroportos').addEventListener('click', function () { m.classList.add('aberto'); document.body.style.overflow = 'hidden'; });
+              m.addEventListener('click', function (e) { if (e.target === m || e.target.closest('.oferta-modal-fechar')) fecha(); });
+              document.addEventListener('keydown', function (e) { if (e.key === 'Escape') fecha(); });
+            })();
+          </script>
+
+        </section>
+
+        <!-- 5. DICAS (BLOG) -->
+        <section class="flex flex-col gap-6">
+          <div class="text-center">
+            <h2 class="text-brandNavy text-2xl md:text-3xl font-extrabold tracking-tight">Dicas de viagem</h2>
+            <p class="text-slate-500 text-sm md:text-base max-w-2xl mx-auto mt-2">Artigos curtos para quem gosta de pesquisar antes de decidir.</p>
+          </div>
+          <div id="lista-dicas" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <article class="dica" data-href="dica-primeira-vez-aviao.html"><div class="dica-img"><img src="img/blog/primeira-vez-aviao-1.jpg" alt="" loading="lazy"></div><div class="dica-corpo"><span class="dica-breve"><i class="fa-regular fa-clock"></i> 2 min de leitura</span><b>Primeira vez de avião: guia sem medo</b><p>Check-in, raio-x, embarque e o que esperar do voo, passo a passo.</p></div></article>
+            <article class="dica" data-href="dica-primeira-viagem-internacional.html"><div class="dica-img"><img src="img/blog/primeira-viagem-internacional-1.jpg" alt="" loading="lazy"></div><div class="dica-corpo"><span class="dica-breve"><i class="fa-regular fa-clock"></i> 2 min de leitura</span><b>Primeira viagem internacional: passo a passo</b><p>Passaporte, imigração, dinheiro e celular: tudo para sair do país tranquilo.</p></div></article>
+            <article class="dica" data-href="dica-bagagem-de-mao.html"><div class="dica-img"><img src="img/blog/bagagem-de-mao-1.jpg" alt="" loading="lazy"></div><div class="dica-corpo"><span class="dica-breve"><i class="fa-regular fa-clock"></i> 2 min de leitura</span><b>Bagagem de mão: o que pode e o que não pode</b><p>Líquidos, eletrônicos, medidas e peso para não ter surpresa no embarque.</p></div></article>
+            <article class="dica" data-href="dica-mala-inteligente.html"><div class="dica-img"><img src="img/blog/mala-inteligente-1.jpg" alt="" loading="lazy"></div><div class="dica-corpo"><span class="dica-breve"><i class="fa-regular fa-clock"></i> 2 min de leitura</span><b>Mala inteligente para qualquer destino</b><p>Como montar uma mala versátil, leve e que combina com qualquer roteiro.</p></div></article>
+            <article class="dica" data-href="dica-mala-extraviada.html"><div class="dica-img"><img src="img/blog/mala-extraviada-1.jpg" alt="" loading="lazy"></div><div class="dica-corpo"><span class="dica-breve"><i class="fa-regular fa-clock"></i> 2 min de leitura</span><b>Mala extraviada ou danificada: o que fazer</b><p>O passo a passo no aeroporto e os seus direitos.</p></div></article>
+            <article class="dica" data-href="dica-comida-especial-aviao.html"><div class="dica-img"><img src="img/blog/comida-especial-aviao-1.jpg" alt="" loading="lazy"></div><div class="dica-corpo"><span class="dica-breve"><i class="fa-regular fa-clock"></i> 2 min de leitura</span><b>Comida especial no avião</b><p>Vegetariana, sem glúten, infantil: a Will Tour solicita para você.</p></div></article>
+            <!-- PRÓXIMOS ARTIGOS (ainda não escritos; voltam para a lista quando ficarem prontos)
+            <article class="dica" data-img=""><div class="dica-img"><i class="fa-solid fa-plane-circle-exclamation"></i></div><div class="dica-corpo"><span class="dica-breve">Em breve</span><b>Voo atrasado, cancelado ou overbooking</b><p>O que a companhia aérea deve oferecer e como agir na hora.</p></div></article>
+            <article class="dica" data-img=""><div class="dica-img"><i class="fa-solid fa-couch"></i></div><div class="dica-corpo"><span class="dica-breve">Em breve</span><b>Econômica, premium e executiva: qual a diferença?</b><p>Conforto, bagagem e serviço de cada classe, para escolher bem.</p></div></article>
+            <article class="dica" data-img=""><div class="dica-img"><i class="fa-solid fa-pills"></i></div><div class="dica-corpo"><span class="dica-breve">Em breve</span><b>Remédios na viagem: como levar no avião</b><p>Receita, mala de mão e cuidados em voos nacionais e internacionais.</p></div></article>
+            <article class="dica" data-img=""><div class="dica-img"><i class="fa-solid fa-passport"></i></div><div class="dica-corpo"><span class="dica-breve">Em breve</span><b>Passaporte e visto americano: como tirar</b><p>Documentos, prazos, custos e como funciona a entrevista.</p></div></article>
+            <article class="dica" data-img=""><div class="dica-img"><i class="fa-solid fa-shield-heart"></i></div><div class="dica-corpo"><span class="dica-breve">Em breve</span><b>Seguro viagem: quando é obrigatório?</b><p>Quais destinos exigem e o que um bom seguro precisa cobrir.</p></div></article>
+            <article class="dica" data-img=""><div class="dica-img"><i class="fa-solid fa-credit-card"></i></div><div class="dica-corpo"><span class="dica-breve">Em breve</span><b>Cartão global e dinheiro no exterior</b><p>Cartão, espécie ou conta global: o que compensa em cada caso.</p></div></article>
+            <article class="dica" data-img=""><div class="dica-img"><i class="fa-solid fa-plug"></i></div><div class="dica-corpo"><span class="dica-breve">Em breve</span><b>Tomadas e adaptadores pelo mundo</b><p>Qual adaptador levar para cada país e como não ficar sem bateria.</p></div></article>
+            <article class="dica" data-img=""><div class="dica-img"><i class="fa-solid fa-child-reaching"></i></div><div class="dica-corpo"><span class="dica-breve">Em breve</span><b>Viajar com crianças pequenas</b><p>Dicas para o voo, o hotel e o roteiro ficarem leves para toda a família.</p></div></article>
+            <article class="dica" data-img=""><div class="dica-img"><i class="fa-solid fa-wand-magic-sparkles"></i></div><div class="dica-corpo"><span class="dica-breve">Em breve</span><b>Disney: guia completo para planejar</b><p>Parques, ingressos, época ideal e quanto guardar por mês.</p></div></article>
+            <article class="dica" data-img=""><div class="dica-img"><i class="fa-solid fa-pizza-slice"></i></div><div class="dica-corpo"><span class="dica-breve">Em breve</span><b>Primeira vez na Itália</b><p>Roteiro, cidades, comidas e dicas para aproveitar sem correria.</p></div></article>
+            -->
+          </div>
+          <div class="flex justify-center">
+            <button type="button" id="ver-mais-dicas" class="inline-flex items-center gap-2.5 border-2 border-brandTeal text-brandTeal hover:bg-brandTeal hover:text-white font-bold py-3 px-8 rounded-full transition-all duration-300"><span>Ver todas as dicas</span><i class="fa-solid fa-chevron-down text-sm"></i></button>
+          </div>
+          <script>
+            (function () {
+              // Foto do card: preencha data-img com o código da foto do Drive (pasta "Site imagens")
+              document.querySelectorAll('.dica[data-img]').forEach(function (c) {
+                var id = c.getAttribute('data-img');
+                if (id) c.querySelector('.dica-img').innerHTML = '<img src="img/site/' + id + '.webp" alt="" loading="lazy">';
+              });
+              document.querySelectorAll('.dica[data-href]').forEach(function (c) { c.addEventListener('click', function () { location.href = c.dataset.href; }); });
+              // Mostra 6 dicas; o botão abre todas
+              var cards = document.querySelectorAll('#lista-dicas .dica'), btn = document.getElementById('ver-mais-dicas'), aberto = false;
+              function aplica() {
+                cards.forEach(function (c, i) { c.style.display = (aberto || i < 6) ? '' : 'none'; });
+                btn.querySelector('span').textContent = aberto ? 'Mostrar menos' : 'Ver todas as dicas (' + cards.length + ')';
+                btn.querySelector('i').className = 'fa-solid fa-chevron-' + (aberto ? 'up' : 'down') + ' text-sm';
+              }
+              btn.addEventListener('click', function () { aberto = !aberto; aplica(); if (!aberto) document.getElementById('lista-dicas').scrollIntoView({ behavior: 'smooth' }); });
+              if (cards.length <= 6) btn.style.display = 'none';
+              aplica();
+            })();
+          </script>
+        </section>
+
+      </div>
+    </main>
+
+    <footer class="w-full bg-brandNavy text-white py-14 border-t border-slate-800 flex justify-center">
+        <div class="w-full max-w-[1140px] px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
+            
+            <!-- Coluna 1: Cadastur Oficial -->
+            <div class="flex flex-col items-center md:items-start">
+                <img 
+                    src="img/site/1bmevpimE60RymTV-SbeyMaf5Q9GQmsXr.webp" 
+                    alt="Ministério do Turismo - CADASTUR" 
+                    class="w-48 sm:w-52 h-auto object-contain hover:scale-105 transition-transform duration-300"
+                >
+            </div>
+
+            <!-- Coluna 2: Logo Oficial em PNG Transparente e Endereço -->
+            <div class="flex flex-col items-center gap-3">
+                <img 
+                    src="img/site/1ifVGnIZV6_0btcCbRdbY15WjkzhRTo1N.webp" 
+                    alt="Will Tour SRS" 
+                    class="h-12 object-contain"
+                >
+                <p class="text-slate-400 text-xs leading-relaxed max-w-xs text-center">
+                    Rua Coronel Francisco Palma, 27 - Centro<br>Santa Rita do Sapucaí/MG
+                </p>
+                <div class="text-slate-500 text-xs font-semibold">
+                    CNPJ: 53.973.458/0001-93
+                </div>
+            </div>
+
+            <!-- Coluna 3: Redes Sociais, Atendimento e Links SPA -->
+            <div class="flex flex-col items-center md:items-end gap-3.5">
+                <div class="flex gap-4 text-xl text-slate-400">
+                    <a href="https://www.instagram.com/willtoursrs" target="_blank" class="hover:text-brandTeal transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/Willtoursrs" target="_blank" class="hover:text-brandTeal transition-colors"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://wa.me/5535984231966" target="_blank" class="hover:text-brandTeal transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+                <div class="text-right flex flex-col items-center md:items-end gap-1 text-xs">
+                    <a href="mailto:contato@willtoursrs.com.br" class="text-slate-300 hover:text-brandTeal transition-colors">contato@willtoursrs.com.br</a>
+                    <span class="text-slate-400">WhatsApp: (35) 98423-1966</span>
+                </div>
+                <div class="flex flex-col items-center md:items-end gap-1 mt-2">
+                    <span class="text-slate-500 text-[10px] block">© 2026 Will Tour SRS. Todos os direitos reservados.</span>
+                    
+                    <!-- Links SPA do Rodapé -->
+                    <div class="flex gap-3 mt-1 text-xs">
+                        <a 
+                            href="quem-somos.html"
+                            id="quem-somos" 
+                            onclick="showAboutUsPage(event)" 
+                            class="text-slate-400 hover:text-brandTeal underline text-[11px] transition-colors duration-300"
+                        >
+                            Quem Somos
+                        </a>
+                        <span class="text-slate-600 text-[11px]">|</span>
+                        <a 
+                            href="politica.html"
+                            id="politica-privacidade"
+                            class="text-slate-400 hover:text-brandTeal underline text-[11px] transition-colors duration-300"
+                        >
+                            Política de Privacidade
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+  </body>
+</html>

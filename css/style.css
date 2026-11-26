@@ -23,7 +23,7 @@ Style
     /* Alturas específicas do Grid de Serviços */
     --h-normal: 130px;
     --h-premium: 160px;
-    --accent: #3aa394;
+    --wt-accent: #3aa394;
     --premium-gold: #ffd700;
     --premium-bg: linear-gradient(135deg, #0a2240 0%, #051329 100%);
 }
@@ -204,7 +204,7 @@ Style
 }
 .services-container .btn-front i { 
     font-size: 34px; 
-    color: var(--accent);
+    color: var(--wt-accent);
     transition: var(--transition-smooth);
 }
 .services-container .btn-back { 
@@ -212,13 +212,13 @@ Style
     font-size: 14px; 
     line-height: 1.5; 
     font-weight: 500; 
-    background: linear-gradient(135deg, var(--accent) 0%, #2c7d71 100%); 
+    background: linear-gradient(135deg, var(--wt-accent) 0%, #2c7d71 100%); 
     padding: 0 18px;
 }
 
 @media (hover: hover) {
     .services-container .hover-btn:not(.premium-btn):hover { 
-        border-color: var(--accent);
+        border-color: var(--wt-accent);
         box-shadow: var(--shadow-hover);
         transform: translateY(-2px);
     }
@@ -233,7 +233,7 @@ Style
     transform: translateY(calc(var(--h-normal) * -1));
 }
 .services-container .hover-btn.active {
-    border-color: var(--accent) !important;
+    border-color: var(--wt-accent) !important;
     box-shadow: var(--shadow-hover) !important;
 }
 
@@ -411,3 +411,370 @@ Style
         text-align: left; padding: 0 20px;
     }
 }
+
+/* ===== CARROSSEL DE OFERTAS (setas + arrastar) ===== */
+.carrossel-wrap { position: relative; width: 100%; }
+.carrossel-ofertas {
+    display: grid; grid-auto-flow: column; gap: 24px;
+    grid-auto-columns: calc((100% - 72px) / 4);
+    overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+    padding: 4px 2px 12px; scrollbar-width: none;
+}
+.carrossel-ofertas::-webkit-scrollbar { display: none; }
+.carrossel-ofertas.carrossel-2linhas { grid-auto-columns: 100%; }
+.carrossel-pagina { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; align-content: start; scroll-snap-align: start; }
+.carrossel-ofertas > .destination-card { scroll-snap-align: start; }
+.carrossel-seta {
+    position: absolute; top: 50%; transform: translateY(-50%); z-index: 5;
+    width: 44px; height: 44px; border-radius: 9999px; border: none; cursor: pointer;
+    background: #0a2240; color: #fff; box-shadow: 0 6px 18px rgba(10,34,64,.3);
+    display: flex; align-items: center; justify-content: center; transition: opacity .2s, background .2s;
+}
+.carrossel-seta:hover { background: #3aa394; }
+.carrossel-seta.esq { left: -22px; } .carrossel-seta.dir { right: -22px; }
+.carrossel-seta[disabled] { opacity: 0; pointer-events: none; }
+@media (max-width: 1023px) {
+    .carrossel-ofertas { grid-auto-columns: calc((100% - 24px) / 2); }
+    .carrossel-pagina { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+    .carrossel-ofertas, .carrossel-ofertas.carrossel-2linhas { grid-auto-columns: 82%; }
+    .carrossel-pagina { display: contents; }
+    .carrossel-pagina > .destination-card { scroll-snap-align: start; }
+    .carrossel-seta.esq { left: -8px; } .carrossel-seta.dir { right: -8px; }
+}
+
+/* ===== POP-UP DA OFERTA ===== */
+.oferta-modal { position: fixed; inset: 0; z-index: 60; display: none; align-items: center; justify-content: center; padding: 16px; background: rgba(10,34,64,.7); backdrop-filter: blur(3px); }
+.oferta-modal.aberto { display: flex; }
+.oferta-modal-box { background: #fff; border-radius: 24px; width: 100%; max-width: 520px; max-height: 92vh; overflow-y: auto; position: relative; box-shadow: 0 25px 60px rgba(0,0,0,.35); animation: modalIn .25s ease; }
+@keyframes modalIn { from { transform: translateY(20px); opacity: 0; } to { transform: none; opacity: 1; } }
+.oferta-modal-box img { width: 100%; height: 240px; object-fit: cover; border-radius: 24px 24px 0 0; display: block; }
+.oferta-modal-fechar { position: absolute; top: 12px; right: 12px; width: 38px; height: 38px; border-radius: 9999px; border: none; background: rgba(255,255,255,.95); color: #0a2240; font-size: 18px; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.2); }
+.oferta-modal-corpo { padding: 24px 28px 28px; }
+.oferta-modal-corpo h3 { font-size: 1.4rem !important; text-align: left !important; }
+.oferta-modal-corpo ul { max-width: none !important; font-size: .9rem !important; margin-top: 14px !important; }
+.oferta-modal-corpo ul li { padding: 2px 0; }
+.oferta-modal-corpo .oferta-preco { text-align: left !important; margin-top: 18px !important; padding: 16px; background: #f8fafc; border-radius: 16px; }
+.oferta-modal-corpo .oferta-preco > span:first-child { font-size: 1.6rem !important; }
+.oferta-modal-corpo .oferta-preco span { font-size: .8rem; }
+.oferta-modal-corpo .oferta-detalhes { display: block !important; margin-top: 16px; color: #475569; font-size: .9rem; line-height: 1.6; }
+.oferta-modal-whats { margin-top: 20px; width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: #25D366; color: #fff; font-weight: 800; font-size: 1rem; padding: 14px 20px; border-radius: 14px; transition: transform .2s, background .2s; }
+.oferta-modal-whats:hover { background: #1ebe5a; transform: scale(1.02); }
+
+/* Bolinhas do carrossel (página atual das ofertas) */
+.carrossel-bolinhas { display: flex; justify-content: center; gap: 8px; margin-bottom: 4px; }
+.carrossel-bolinhas button { width: 9px; height: 9px; border-radius: 9999px; border: none; padding: 0; cursor: pointer; background: #cbd5e1; transition: all .25s; }
+.carrossel-bolinhas button.ativa { width: 26px; background: #3aa394; }
+
+/* ===== CARD DE OFERTA RESUMIDO (detalhes completos ficam no pop-up) ===== */
+.destination-card.card-compacto { height: auto !important; }
+.destination-card.card-compacto .destination-image-container { height: 150px !important; }
+.destination-card.card-compacto ul,
+.destination-card.card-compacto .oferta-resumo ~ div { display: none !important; }
+.destination-card.card-compacto .p-5, .destination-card.card-compacto .p-6 { padding: 14px 16px 6px !important; }
+.destination-card.card-compacto h3 { min-height: 2.6em; display: flex; align-items: center; justify-content: center; line-height: 1.3; }
+.destination-card.card-compacto .px-5, .destination-card.card-compacto .px-6 { padding: 8px 16px 16px !important; }
+.oferta-resumo { text-align: center; margin-top: 6px; }
+.oferta-resumo p { margin: 0; }
+.oferta-resumo-dur { color: #64748b; font-size: 12px; font-weight: 600; margin-top: -2px !important; }
+.oferta-resumo-icones { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 14px 0 14px; padding: 10px 0; border-top: 1px dashed #e2e8f0; border-bottom: 1px dashed #e2e8f0; }
+.oferta-resumo-icones span { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 10px; font-weight: 600; color: #64748b; min-width: 40px; }
+.oferta-resumo-icones i { color: #3aa394; font-size: 16px; }
+.oferta-resumo-suf { color: #64748b; font-size: 11px; font-weight: 600; }
+.oferta-resumo-de { color: #94a3b8; font-size: 11px; font-weight: 600; }
+.oferta-resumo-valor { color: #0a2240; font-size: 20px; font-weight: 900; line-height: 1.2; }
+.oferta-resumo-valor span { font-size: 11px; color: #64748b; font-weight: 600; }
+.oferta-resumo-parc { color: #059669; font-size: 12px; font-weight: 700; margin-top: 2px !important; }
+.oferta-resumo-aviso { color: #94a3b8; font-size: 9px; font-style: italic; margin-top: 6px !important; }
+
+/* Card ainda mais compacto */
+.destination-card.card-compacto .destination-image-container { height: 130px !important; }
+.destination-card.card-compacto .p-5, .destination-card.card-compacto .p-6 { padding: 10px 14px 2px !important; }
+.destination-card.card-compacto h3 { min-height: 0; }
+.destination-card.card-compacto .px-5, .destination-card.card-compacto .px-6 { padding: 6px 14px 12px !important; }
+.destination-card.card-compacto .px-5 a, .destination-card.card-compacto .px-6 a { padding-top: 8px !important; padding-bottom: 8px !important; }
+.oferta-resumo { margin-top: 0; }
+.oferta-resumo-icones { margin: 6px 0; padding: 6px 0; }
+.oferta-resumo-icones span { gap: 2px; }
+.oferta-resumo-icones i { font-size: 14px; }
+.oferta-resumo-valor { font-size: 19px; line-height: 1.15; }
+.oferta-resumo-aviso { margin-top: 3px !important; }
+
+/* ===== LEITURA: letras maiores e cinzas mais escuros ===== */
+/* Escurece os cinzas claros do Tailwind em todo o site (contraste melhor no branco) */
+.text-slate-300 { color: #64748b !important; }
+.text-slate-400 { color: #64748b !important; }
+.text-slate-500 { color: #475569 !important; }
+.text-slate-600 { color: #334155 !important; }
+
+/* Fundo levemente cinza na seção de ofertas do Início, para os cards brancos se destacarem */
+#ofertas-destaque { background: #f8fafc !important; }
+
+/* Cards de oferta: tamanhos de leitura */
+.destination-card.card-compacto h3 { font-size: 17px !important; }
+.oferta-resumo-dur { font-size: 14px; color: #475569; }
+.oferta-resumo-icones span { font-size: 12px; color: #475569; }
+.oferta-resumo-icones i { font-size: 17px; }
+.oferta-resumo-de { font-size: 13px; color: #64748b; }
+.oferta-resumo-valor { font-size: 22px; }
+.oferta-resumo-suf { font-size: 13px; color: #475569; }
+.oferta-resumo-parc { font-size: 13px; }
+.oferta-resumo-aviso { font-size: 11px; color: #64748b; }
+.destination-card.card-compacto .px-5 a, .destination-card.card-compacto .px-6 a { font-size: 14px !important; }
+
+/* Pop-up: textos legíveis */
+.oferta-modal-corpo ul { color: #334155 !important; font-size: 15px !important; }
+.oferta-modal-corpo .oferta-preco span { font-size: 13px !important; }
+.oferta-modal-corpo .oferta-preco > span:first-child { font-size: 26px !important; }
+
+/* Seções com poucas ofertas ficam centralizadas */
+.carrossel-pagina { grid-template-columns: repeat(auto-fit, calc((100% - 72px) / 4)); justify-content: center; }
+@media (max-width: 1023px) { .carrossel-pagina { grid-template-columns: repeat(auto-fit, calc((100% - 24px) / 2)); } }
+.oferta-resumo-icones { gap: 8px; }
+.oferta-resumo-icones span { white-space: nowrap; min-width: 0; }
+
+/* Em fundos escuros (navy), os cinzas continuam claros */
+.bg-brandNavy .text-slate-300, footer .text-slate-300, header .text-slate-300 { color: #cbd5e1 !important; }
+.bg-brandNavy .text-slate-400, footer .text-slate-400, header .text-slate-400 { color: #94a3b8 !important; }
+.bg-brandNavy .text-slate-500, footer .text-slate-500 { color: #94a3b8 !important; }
+
+/* ===== Somos daqui, feriados, dicas, como funciona ===== */
+      .foto-sugerida { border: 2px dashed #94a3b8; border-radius: 18px; background: #eef2f6; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 6px; padding: 16px; color: #475569; }
+      .foto-sugerida i { font-size: 28px; color: #3aa394; }
+      .foto-sugerida b { color: #0a2240; font-size: 15px; }
+      .foto-sugerida span { font-size: 12px; max-width: 260px; }
+      .passo { background: #fff; border: 1px solid #e2e8f0; border-radius: 18px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,.03); }
+      .passo span { display: inline-flex; width: 32px; height: 32px; border-radius: 9999px; background: #3aa394; color: #fff; font-weight: 900; align-items: center; justify-content: center; }
+      .passo b { display: block; color: #0a2240; font-size: 16px; margin: 10px 0 4px; }
+      .passo p { color: #475569; font-size: 14px; line-height: 1.5; }
+      .dica { background: #fff; border: 1px solid #e2e8f0; border-radius: 18px; padding: 22px; box-shadow: 0 2px 8px rgba(0,0,0,.03); display: flex; flex-direction: column; gap: 6px; cursor: pointer; transition: transform .2s, box-shadow .2s; }
+      .dica:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(10,34,64,.08); }
+      .dica i { color: #3aa394; font-size: 22px; }
+      .dica b { color: #0a2240; font-size: 16px; line-height: 1.3; }
+      .dica p { color: #475569; font-size: 14px; }
+      .feriado { background: #fff; border: 1px solid #e2e8f0; border-radius: 18px; padding: 18px 20px; box-shadow: 0 2px 8px rgba(0,0,0,.03); display: flex; flex-direction: column; gap: 8px; }
+      .feriado .data { display: flex; align-items: baseline; gap: 8px; }
+      .feriado .data strong { color: #0a2240; font-size: 18px; font-weight: 900; }
+      .feriado .data small { color: #64748b; font-size: 13px; font-weight: 600; }
+      .feriado .nome { color: #3aa394; font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; }
+      .feriado .dias { color: #475569; font-size: 14px; }
+      .feriado .ideias { color: #475569; font-size: 13px; }
+      .feriado a { margin-top: auto; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #3aa394; color: #fff; font-weight: 800; font-size: 14px; padding: 10px; border-radius: 12px; }
+      .feriado a:hover { background: #2c7d71; }
+      .feriado.destaque { border: 2px solid #3aa394; }
+    
+/* ===== Menu: lista que abre em "Ofertas" ===== */
+.menu-drop { position: relative; display: inline-flex; align-items: center; }
+.menu-drop > a { display: inline-flex; align-items: center; gap: 4px; }
+.menu-drop-lista { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding-top: 14px; min-width: 220px; opacity: 0; visibility: hidden; transition: opacity .2s, visibility .2s; z-index: 50; }
+.menu-drop-lista::before { content: ''; position: absolute; inset: 14px 0 0 0; background: #fff; border-radius: 14px; box-shadow: 0 14px 34px rgba(10,34,64,.22); z-index: -1; }
+.menu-drop:hover .menu-drop-lista, .menu-drop:focus-within .menu-drop-lista { opacity: 1; visibility: visible; }
+.menu-drop-lista a { display: flex; align-items: center; gap: 10px; padding: 12px 16px; color: #0a2240 !important; font-weight: 700; font-size: 14px; white-space: nowrap; }
+.menu-drop-lista a:first-child { padding-top: 14px; }
+.menu-drop-lista a:last-child { padding-bottom: 14px; }
+.menu-drop-lista a i { color: #3aa394; width: 16px; text-align: center; }
+.menu-drop-lista a:hover { color: #3aa394 !important; }
+.dica { position: relative; }
+.dica-breve { position: absolute; top: 14px; right: 14px; font-size: 10px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: #64748b; background: #f1f5f9; padding: 3px 8px; border-radius: 9999px; }
+/* Cards de dicas com imagem */
+.dica { padding: 0 !important; overflow: hidden; gap: 0 !important; }
+.dica-img { height: 150px; background: linear-gradient(135deg, #0a2240 0%, #2c7d71 100%); display: flex; align-items: center; justify-content: center; }
+.dica-img i { color: rgba(255,255,255,.85) !important; font-size: 42px !important; }
+.dica-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.dica:hover .dica-img img { transform: scale(1.05); }
+.dica-corpo { position: relative; padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 6px; }
+.dica .dica-breve { top: -138px; right: 12px; background: rgba(255,255,255,.92); }
+
+/* Circuitos: botão e pop-up do roteiro completo */
+.oferta-modal-roteiro-bt { width: 100%; margin-top: 16px; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 14px; border: 2px solid #3aa394; background: #fff; color: #0a2240; font-weight: 700; font-size: .95rem; cursor: pointer; }
+.oferta-modal-roteiro-bt:hover { background: #f0faf8; }
+.oferta-modal-roteiro-bt i { color: #3aa394; }
+.oferta-modal-rot { z-index: 61; }
+.oferta-modal-rot .oferta-modal-corpo { padding-top: 32px; }
+.oferta-rot-sub { color: #3aa394; font-weight: 700; font-size: .85rem; margin-top: 2px; }
+.oferta-roteiro ol { list-style: none; padding: 0; margin: 14px 0 0; }
+.oferta-roteiro li { font-size: .9rem; color: #475569; line-height: 1.5; padding: 10px 0; border-bottom: 1px dashed #e2e8f0; }
+.oferta-roteiro li b { color: #0a2240; }
+
+/* Pop-up: preço em destaque (fundo azul-marinho, valor em amarelo) */
+.oferta-modal-corpo .oferta-preco { background: #0a2240 !important; color: #fff; padding: 20px !important; }
+.oferta-modal-corpo .oferta-preco > span:first-child { font-size: .8rem !important; }
+.oferta-modal-corpo .oferta-preco span { color: #cbd5e1 !important; }
+.oferta-modal-corpo .oferta-preco span.font-black { font-size: 2.3rem !important; color: #ffd700 !important; line-height: 1.1; margin: 4px 0; }
+.oferta-modal-corpo .oferta-preco span.font-black span { font-size: .85rem !important; color: #fff !important; display: block; font-weight: 600; }
+.oferta-modal-corpo .oferta-preco .text-emerald-600 { color: #6ee7b7 !important; font-size: .9rem !important; }
+.oferta-semana { margin-top: 4px; font-size: .85rem; font-weight: 700; color: #2c7d71; }
+.oferta-col-b > :first-child { margin-top: 18px !important; }
+
+/* Computador: pop-up largo, foto em faixa e duas colunas, sem precisar rolar */
+@media (min-width: 900px) {
+  .oferta-modal-box { max-width: 1000px; }
+  .oferta-modal:not(.oferta-modal-rot) .oferta-modal-box img { height: 170px; }
+  .oferta-modal:not(.oferta-modal-rot) .oferta-modal-corpo { display: grid; grid-template-columns: 1.25fr 1fr; gap: 32px; align-items: start; }
+  .oferta-col-b > :first-child { margin-top: 0 !important; }
+  .oferta-modal-corpo ul { margin-top: 10px !important; }
+  .oferta-modal-corpo ul li { padding: 1px 0; }
+  .oferta-modal-rot .oferta-modal-box { max-width: 820px; }
+  .oferta-modal-rot .oferta-roteiro ol { columns: 2; column-gap: 32px; }
+  .oferta-modal-rot .oferta-roteiro li { break-inside: avoid; }
+}
+
+/* Circuitos: próximas saídas com leve destaque e "não inclui" visível */
+.oferta-modal-corpo .oferta-saidas { background: #f0faf8; border: 1px solid #cdeee8; border-left: 4px solid #3aa394; border-radius: 14px; padding: 12px 16px; }
+.oferta-saidas-tit { color: #0a2240; font-weight: 800; font-size: .95rem; }
+.oferta-modal-corpo .oferta-saidas p { color: #1e293b !important; }
+.oferta-nao-inclui { font-weight: 800; color: #b45309; }
+.oferta-modal-corpo .oferta-preco .oferta-nao-inclui { color: #fbbf24 !important; font-size: .85rem !important; }
+
+/* Ícones do card sempre em uma linha só (PC e celular) */
+.oferta-resumo-icones { flex-wrap: nowrap !important; gap: 4px !important; justify-content: space-evenly; }
+.oferta-resumo-icones span { min-width: 0 !important; flex: 0 1 auto; font-size: 11px !important; letter-spacing: -.2px; white-space: nowrap; }
+.oferta-resumo-icones i { font-size: 16px !important; }
+
+/* ===== FILTRO DOS CIRCUITOS ===== */
+.circ-filtro { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; background: #fff; border: 1px solid #e2e8f0; border-radius: 18px; padding: 12px 16px; box-shadow: 0 1px 3px rgba(0,0,0,.05); position: relative; z-index: 20; }
+.circ-bt { display: inline-flex; align-items: center; gap: 8px; background: #0a2240; color: #fff; font-weight: 700; font-size: .875rem; padding: 10px 18px; border-radius: 9999px; border: none; cursor: pointer; transition: background .2s; }
+.circ-bt:hover, .circ-bt.ativo { background: #3aa394; }
+.circ-seta { font-size: 10px; transition: transform .2s; }
+.circ-drop { position: relative; }
+.circ-drop.aberto .circ-seta { transform: rotate(180deg); }
+.circ-lista { display: none; position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%); min-width: 230px; max-height: 320px; overflow-y: auto; background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; box-shadow: 0 12px 30px rgba(10,34,64,.18); padding: 6px; z-index: 30; }
+.circ-drop.aberto .circ-lista { display: block; }
+.circ-lista button { display: block; width: 100%; text-align: left; padding: 9px 12px; border: none; background: none; border-radius: 10px; font-size: .9rem; font-weight: 600; color: #0a2240; cursor: pointer; }
+.circ-lista button:hover { background: #f0faf8; }
+.circ-lista button.sel { background: #3aa394; color: #fff; }
+.circ-lista button small { opacity: .7; font-weight: 500; }
+.circ-total { width: 100%; text-align: center; font-size: .8rem; font-weight: 600; color: #64748b; margin-top: 2px; }
+@media (max-width: 640px) {
+  .circ-bt { padding: 9px 14px; font-size: .8rem; }
+  .circ-lista { left: 0; transform: none; }
+  .circ-drop:last-of-type .circ-lista { left: auto; right: 0; }
+}
+
+/* Filtro dos circuitos: mais compacto, sem contador */
+.circ-total { display: none !important; }
+.circ-filtro { padding: 8px 12px; gap: 8px; border-radius: 14px; }
+.circ-bt { font-size: 12px !important; padding: 6px 13px !important; gap: 6px; }
+.circ-bt i { font-size: 11px; }
+.circ-seta { font-size: 8px !important; }
+.circ-lista { min-width: 170px; max-height: 260px; padding: 4px; border-radius: 10px; top: calc(100% + 6px); }
+.circ-lista button { font-size: 12px !important; padding: 6px 10px; border-radius: 7px; }
+.circ-lista button small { font-size: 10px; }
+
+/* Filtro dos circuitos: sem caixa branca, com chamada acima dos botões */
+.circ-filtro { display: flex; flex-direction: column; align-items: center; gap: 10px; background: none !important; border: none !important; box-shadow: none !important; padding: 0 !important; }
+.circ-titulo { font-family: "Montserrat", sans-serif; font-size: 22px; font-weight: 800; color: #0a2240; letter-spacing: -.2px; line-height: 1.25; text-align: center; margin-bottom: 6px; }
+.circ-titulo::after { content: ""; display: block; width: 48px; height: 3px; border-radius: 3px; background: #3aa394; margin: 10px auto 4px; }
+@media (max-width: 640px) { .circ-titulo { font-size: 18px; } }
+.circ-botoes { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; }
+.circ-bt { background: #fff !important; color: #0a2240 !important; border: 1px solid #cbd5e1 !important; box-shadow: 0 1px 2px rgba(10,34,64,.06); }
+.circ-bt i { color: #3aa394; }
+.circ-bt:hover { border-color: #3aa394 !important; }
+.circ-bt.ativo { background: #0a2240 !important; color: #fff !important; border-color: #0a2240 !important; }
+.circ-bt.ativo i { color: #ffd700; }
+.circ-limpar { display: none; align-items: center; gap: 6px; background: none; border: none; color: #2c7d71; font-size: 12px; font-weight: 700; padding: 6px 8px; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.circ-limpar.mostra { display: inline-flex; }
+.circ-limpar i { font-size: 11px; }
+
+/* X no filtro em uso (troca a setinha) */
+.circ-x { display: none; align-items: center; justify-content: center; width: 22px; height: 22px; margin: -4px -6px -4px 2px; border-radius: 9999px; background: rgba(255,255,255,.18); cursor: pointer; }
+.circ-x i { color: #fff !important; font-size: 11px !important; }
+.circ-x:hover { background: rgba(255,255,255,.35); }
+.circ-bt.ativo .circ-x { display: inline-flex; }
+.circ-bt.ativo .circ-seta { display: none; }
+@media (max-width: 640px) { .circ-x { width: 26px; height: 26px; } }
+
+/* Noites por cidade (circuitos): etiquetas compactas */
+.oferta-cidades { list-style: none; display: flex; flex-wrap: wrap; gap: 5px; margin: 4px 0 6px -2px; }
+.oferta-cidades .cid { display: inline-flex; align-items: baseline; gap: 4px; background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 9999px; padding: 2px 9px; font-size: .82rem; font-weight: 700; color: #0a2240; }
+.oferta-cidades .cid em { font-style: normal; font-weight: 600; font-size: .72rem; color: #2c7d71; }
+.oferta-cidades .cid-pass { flex-basis: 100%; font-size: .75rem; color: #64748b; margin-top: 1px; }
+.destination-card:not(.oferta-modal *) .oferta-cidades { display: none; }
+
+/* Roteiro completo: noites por cidade ao lado de "Roteiro dia a dia", centralizado */
+.oferta-rot-topo { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 16px; }
+.oferta-rot-cidades { justify-content: center; margin: 0 !important; }
+@media (max-width: 899px) {
+  .oferta-rot-topo { grid-template-columns: 1fr; gap: 8px; }
+  .oferta-rot-cidades { justify-content: flex-start; }
+}
+
+/* Quadro do preço mais respirado: "/ pessoa em quarto duplo" ao lado do valor; câmbio vai para o rodapé */
+.oferta-modal-corpo .oferta-preco span.font-black span { display: inline !important; font-size: .85rem !important; margin-left: 6px; vertical-align: middle; }
+.oferta-modal-corpo .oferta-preco span.font-black .ast { color: #ffd700; font-size: .5em; vertical-align: super; margin-left: 1px; }
+.oferta-modal-corpo .oferta-preco > span { margin-top: 6px !important; }
+.oferta-modal-corpo .oferta-preco > span:first-child, .oferta-modal-corpo .oferta-preco span.font-black { margin-top: 0 !important; }
+.oferta-rodape { grid-column: 1 / -1; font-size: .75rem; color: #64748b; margin-top: 14px; padding-top: 10px; border-top: 1px solid #e2e8f0; }
+
+/* Quadro do preço: valor grande de novo e mais espaço entre as linhas */
+.oferta-modal-corpo .oferta-preco { padding: 26px 26px 24px !important; }
+.oferta-modal-corpo .oferta-preco span.font-black { font-size: 2.7rem !important; line-height: 1.05 !important; margin: 6px 0 14px !important; display: flex !important; flex-wrap: wrap; align-items: baseline; column-gap: 10px; }
+.oferta-modal-corpo .oferta-preco span.font-black span { font-size: .95rem !important; margin-left: 0; }
+.oferta-modal-corpo .oferta-preco > span:not(:first-child):not(.font-black) { margin-top: 10px !important; font-size: .9rem !important; line-height: 1.4; }
+
+/* Valor e "/ pessoa em quarto duplo" sempre na mesma linha */
+.oferta-modal-corpo .oferta-preco span.font-black { display: block !important; white-space: nowrap; }
+.oferta-modal-corpo .oferta-preco span.font-black .ast { margin-left: 0; }
+.oferta-modal-corpo .oferta-preco span.font-black span { display: inline !important; font-size: .78rem !important; margin-left: 8px; vertical-align: middle; white-space: nowrap; }
+@media (max-width: 400px) { .oferta-modal-corpo .oferta-preco span.font-black { font-size: 2.2rem !important; } .oferta-modal-corpo .oferta-preco span.font-black span { font-size: .7rem !important; } }
+.oferta-modal-corpo .oferta-preco span.font-black span { vertical-align: baseline !important; }
+.oferta-modal-corpo .oferta-preco span.font-black span { margin-left: 2px !important; position: relative; top: -3px; }
+.oferta-modal-corpo .oferta-preco span.font-black span { margin-left: -10px !important; }
+
+/* Celular: o valor ocupa a linha e "/ pessoa em quarto duplo" vai logo abaixo (não cabe ao lado sem estourar) */
+@media (max-width: 640px) {
+  .oferta-modal-corpo .oferta-preco span.font-black { white-space: normal !important; font-size: 2.4rem !important; }
+  .oferta-modal-corpo .oferta-preco span.font-black span { display: block !important; margin-left: 0 !important; top: 0; margin-top: 4px; font-size: .85rem !important; }
+}
+
+/* Circuitos: grade completa (sem carrossel) + botão "Ver mais circuitos" */
+.circ-grade { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+@media (max-width: 1023px) { .circ-grade { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .circ-grade { grid-template-columns: 1fr; } }
+.circ-mais { display: flex; align-items: center; gap: 8px; margin: 28px auto 0; background: #fff; color: #0a2240; border: 2px solid #3aa394; font-weight: 700; font-size: 14px; padding: 10px 26px; border-radius: 9999px; cursor: pointer; }
+.circ-mais:hover { background: #3aa394; color: #fff; }
+.circ-mais i { font-size: 11px; }
+
+/* ===== Pop-up dos circuitos: EUR | R$ lado a lado, "por pessoa em quarto duplo" centralizado embaixo ===== */
+.oferta-valores { display: inline-block; margin: 6px 0 8px; max-width: 100%; }
+.oferta-modal-corpo .oferta-preco .oferta-valores > span.font-black { display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; align-items: flex-end !important; white-space: nowrap !important; margin: 0 !important; gap: 0 !important; }
+.oferta-modal-corpo .oferta-preco .oferta-valores span.oferta-eur { display: inline !important; font-size: 2.7rem !important; line-height: .95 !important; color: #ffd700 !important; font-weight: 900; margin: 0 !important; position: static !important; }
+.oferta-modal-corpo .oferta-preco .oferta-valores span.oferta-eur .ast { color: #ffd700 !important; }
+.oferta-modal-corpo .oferta-preco .oferta-valores span.oferta-reais { display: inline-flex !important; flex-direction: column !important; align-items: flex-start; margin: 0 0 0 18px !important; padding: 2px 0 2px 16px !important; border-left: 1px solid rgba(255,255,255,.25) !important; line-height: 1.15 !important; position: static !important; top: 0 !important; }
+.oferta-modal-corpo .oferta-preco .oferta-reais b { font-size: 1.45rem !important; font-weight: 800; color: #fff !important; }
+.oferta-modal-corpo .oferta-preco .oferta-reais small { font-size: .8rem !important; font-weight: 600; color: #cbd5e1 !important; margin-top: 2px; }
+.oferta-modal-corpo .oferta-preco .oferta-valores .oferta-sufixo { display: block; text-align: center; font-size: .95rem !important; font-weight: 600; color: #fff !important; margin: 10px 0 0 !important; }
+@media (max-width: 640px) {
+  .oferta-modal-corpo .oferta-preco .oferta-valores span.oferta-eur { font-size: 2.1rem !important; }
+  .oferta-modal-corpo .oferta-preco .oferta-valores span.oferta-reais { margin-left: 10px !important; padding-left: 10px !important; }
+  .oferta-modal-corpo .oferta-preco .oferta-reais b { font-size: 1.15rem !important; }
+  .oferta-modal-corpo .oferta-preco .oferta-reais small { font-size: .68rem !important; }
+}
+@media (max-width: 360px) {
+  .oferta-modal-corpo .oferta-preco .oferta-valores span.oferta-eur { font-size: 1.75rem !important; }
+  .oferta-modal-corpo .oferta-preco .oferta-reais b { font-size: 1rem !important; }
+}
+
+/* Card da lista (circuitos): reais em cima, maior; "a partir de EUR x" embaixo, menor */
+.oferta-resumo-reais { display: block; margin: 0 !important; line-height: 1.15; }
+.oferta-resumo-reais span { display: block; font-size: 12px; font-weight: 600; color: #64748b; }
+.oferta-resumo-reais b { display: block; font-size: 24px; font-weight: 900; color: #0a2240; }
+.oferta-resumo-reais[hidden], .oferta-resumo-de[hidden] { display: none; }
+.oferta-resumo-valor.oferta-resumo-eur-peq { font-size: 14px !important; font-weight: 700; color: #2c7d71; margin-top: 2px !important; }
+/* Próximas saídas: um mês por linha */
+.saida-mes { display: block; padding: 2px 0; }
+.saida-mes b { display: inline-block; min-width: 118px; }
+.circ-aviso-cambio { text-align: center; font-size: 12px; color: #64748b; margin-top: 18px; }
+
+/* Feriados: dias em linhas (feriado verde, emenda amarelo, fim de semana cinza) */
+.fer-dias { list-style: none; margin: 8px 0 6px; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.fer-dias li { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; padding: 4px 8px; border-radius: 8px; background: #f8fafc; color: #475569; }
+.fer-dias li b { color: #0a2240; font-weight: 700; }
+.fer-dias li.dia-fer { background: #ecfdf5; color: #047857; font-weight: 700; }
+.fer-dias li.dia-emenda { background: #fef9c3; color: #854d0e; font-weight: 700; }
+
+.fer-topo { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.fer-selo { flex-shrink: 0; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .03em; padding: 3px 8px; border-radius: 9999px; background: #e0f2fe; color: #0a2240; white-space: nowrap; }
+.fer-selo.municipal { background: #0a2240; color: #fff; }
+.fer-selo.facultativo { background: #f1f5f9; color: #64748b; }

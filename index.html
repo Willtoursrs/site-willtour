@@ -7,6 +7,7 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      if (location.protocol === 'file:' || /^(localhost|127\.0\.0\.1)$/.test(location.hostname)) { window['ga-disable-G-P6GJ9T2P6V'] = true; } // testes locais não contam
       gtag('config', 'G-P6GJ9T2P6V');
     </script>
     <meta charset="UTF-8">
@@ -25,7 +26,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Theme Style -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=20261126">
     
     <!-- Tailwind CSS para estilização de alto nível -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -74,7 +75,7 @@
               <!-- Logo Corporativo com a transparência do Drive -->
               <a href="index.html" onclick="showHomePage(event)" class="flex items-center gap-2">
                   <img 
-                      src="https://drive.google.com/thumbnail?id=1ifVGnIZV6_0btcCbRdbY15WjkzhRTo1N&sz=w500" 
+                      src="img/site/1ifVGnIZV6_0btcCbRdbY15WjkzhRTo1N.webp" 
                       alt="Will Tour SRS" 
                       class="h-10 sm:h-12 object-contain"
                   >
@@ -83,10 +84,22 @@
               <!-- Menu de Links do Site Organizado na Nova Ordem -->
               <nav class="hidden md:flex items-center gap-8 font-semibold text-sm">
                   <!-- <a href="quem-somos.html" onclick="showAboutUsPage(event)" target="_self" class="text-slate-200 hover:text-brandTeal transition-colors">Quem Somos</a> -->
+                  <a href="index.html">Início</a>
                   <a href="quem-somos.html" id="#quem-somos">Quem Somos</a>
-                  <a href="#quem-atendemos" onclick="showHomePage(event, 'quem-atendemos')" target="_self" class="text-slate-200 hover:text-brandTeal transition-colors">Quem Atendemos</a>
-                  <a href="#nossos-servicos" onclick="showHomePage(event, 'nossos-servicos')" target="_self" class="text-slate-200 hover:text-brandTeal transition-colors">Nossos Serviços</a>
-                 <a href="ofertas.html" id="#ofertas" >Ofertas</a>
+                 <div class="menu-drop">
+                   <a href="javascript:void(0)" id="#ofertas" style="cursor:default">Promoções <i class="fa-solid fa-chevron-down text-[10px] ml-0.5"></i></a>
+                   <div class="menu-drop-lista">
+                     <a href="circuitos.html"><i class="fa-solid fa-earth-europe"></i>Grupos - Circuitos</a>
+                     <a href="ofertas.html"><i class="fa-solid fa-tags"></i>Promoções</a>
+                   </div>
+                 </div>
+                 <div class="menu-drop">
+                   <a href="javascript:void(0)" style="cursor:default">Blog de Dicas <i class="fa-solid fa-chevron-down text-[10px] ml-0.5"></i></a>
+                   <div class="menu-drop-lista">
+                     <a href="dicas.html"><i class="fa-solid fa-lightbulb"></i>Dicas para sua viagem</a>
+                     <a href="feriados.html"><i class="fa-regular fa-calendar"></i>Próximos feriados</a>
+                   </div>
+                 </div>
               </nav>
 
               <!-- Botão Faça um orçamento Rápido -->
@@ -108,24 +121,26 @@
 
           <!-- Menu Retrátil no Mobile Organizado na Nova Ordem -->
           <div id="mobile-nav" class="hidden md:hidden bg-brandNavy border-t border-slate-800 px-4 py-4 space-y-3 font-semibold text-sm">
+              <a href="index.html" class="block text-slate-200 hover:text-brandTeal py-1">Início</a>
               <a href="quem-somos.html" id="quem-somos" target="_self" class="block text-slate-200 hover:text-brandTeal py-1">Quem Somos</a>
-              <a href="#nossos-servicos" onclick="showHomePage(event, 'nossos-servicos')" target="_self" class="block text-slate-200 hover:text-brandTeal py-1">Nossos Serviços</a>
-              <a href="#quem-atendemos" onclick="showHomePage(event, 'quem-atendemos')" target="_self" class="block text-slate-200 hover:text-brandTeal py-1">Quem Atendemos</a>
-              <a href="ofertas.html" id="ofertas" class="block text-slate-200 hover:text-brandTeal py-1">Ofertas</a>
+              <a href="circuitos.html" class="block text-slate-200 hover:text-brandTeal py-1">Grupos - Circuitos</a>
+              <a href="ofertas.html" id="ofertas" class="block text-slate-200 hover:text-brandTeal py-1">Promoções</a>
+              <a href="dicas.html" class="block text-slate-200 hover:text-brandTeal py-1">Dicas para sua viagem</a>
+              <a href="feriados.html" class="block text-slate-200 hover:text-brandTeal py-1">Próximos feriados</a>
           </div>
       </header>
 
       <!-- SEÇÃO HERO COM CARROSSEL DE IMAGENS -->
-      <section id="hero-section" class="relative w-full h-[460px] md:h-[580px] overflow-hidden bg-brandNavy transition-all duration-500">
+      <section id="hero-section" class="relative w-full h-[440px] md:h-[50vh] md:min-h-[400px] md:max-h-[520px] overflow-hidden bg-brandNavy transition-all duration-500">
           
           <!-- Fundo de Imagens -->
           <div id="carousel-container" class="absolute inset-0 w-full h-full">
-              <div class="slide-bg active absolute inset-0 w-full h-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1621259182978-f09e5e2b07ae?auto=format&fit=crop&w=1920&q=80');"></div>
+              <div class="slide-bg active absolute inset-0 w-full h-full bg-cover bg-center" style="background-image: url('img/hero/roma.jpg');"></div>
               <div class="slide-bg absolute inset-0 w-full h-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1920&q=80');"></div>
-              <div class="slide-bg absolute inset-0 w-full h-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1513635269975-59663e0ca1ad?auto=format&fit=crop&w=1920&q=80');"></div>
+              <div class="slide-bg absolute inset-0 w-full h-full bg-cover bg-center" style="background-image: url('img/hero/londres.jpg');"></div>
               <div class="slide-bg absolute inset-0 w-full h-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1920&q=80');"></div>
-              <div class="slide-bg absolute inset-0 w-full h-full bg-cover bg-center" style="background-image: url('https://drive.google.com/thumbnail?id=1cigygN3YMWVx7w2l9SgHRAZPAIhl9n2O&sz=w1600');"></div>
-              <div class="slide-bg absolute inset-0 w-full h-full bg-cover bg-center" style="background-image: url('https://drive.google.com/thumbnail?id=1ruwqYzFldD2YPGqBhNH91vkYqI2-Rxh0&sz=w1600');"></div>
+              <div class="slide-bg absolute inset-0 w-full h-full bg-cover bg-center" style="background-image: url('img/site/1cigygN3YMWVx7w2l9SgHRAZPAIhl9n2O.webp');"></div>
+              <div class="slide-bg absolute inset-0 w-full h-full bg-cover bg-center" style="background-image: url('img/site/1ruwqYzFldD2YPGqBhNH91vkYqI2-Rxh0.webp');"></div>
           </div>
 
           <!-- Textos e Botão de Ação -->
@@ -175,78 +190,8 @@
               </befly-widget></div><script type="text/javascript" src="https://static.onertravel.com/widget/search/production/widget-befly.js"></script>
           </div>
 
-          <!-- SEÇÃO 1: DESTINOS EM DESTAQUE - CARDS MENORES E SEM BOTÕES -->
-          <section id="destinos" class="w-full bg-slate-50 py-16 flex justify-center">
-              <div class="w-full max-w-[1140px] flex flex-col gap-10 items-center px-4">
-                  
-                  <div class="text-center max-w-2xl px-4">
-                      <span class="text-brandTeal text-xs md:text-sm font-extrabold tracking-widest uppercase bg-teal-50 px-4 py-2 rounded-full border border-teal-100/50">Inspiração</span>
-                      <h2 class="text-brandNavy text-3xl md:text-4xl font-extrabold mt-4 tracking-tight leading-tight">Destinos em destaque</h2>
-                      <p class="text-slate-500 font-medium text-sm md:text-base mt-2">Escolha o seu próximo destino e deixe que nós planejamos a experiência perfeita para você.</p>
-                  </div>
-
-                  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full">
-                      
-                      <!-- Card 1: Porto de Galinhas -->
-                      <div class="destination-card bg-white rounded-[24px] border border-slate-100 overflow-hidden flex flex-col h-[360px] shadow-sm">
-                          <div class="destination-image-container h-[200px] w-full overflow-hidden relative">
-                              <img 
-                                  src="https://drive.google.com/thumbnail?id=1cigygN3YMWVx7w2l9SgHRAZPAIhl9n2O&sz=w1000" 
-                                  alt="Porto de Galinhas" 
-                                  class="w-full h-full object-cover"
-                                  onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80'"
-                              >
-                          </div>
-                          <div class="p-5 flex-grow flex flex-col justify-center">
-                              <h3 class="text-brandNavy text-lg font-extrabold tracking-tight text-center">Porto de Galinhas - PE</h3>
-                              <p class="text-slate-500 text-xs font-medium mt-2 leading-relaxed text-center">
-                                  Águas cristalinas, piscinas naturais e cenários que transformam qualquer viagem em uma experiência inesquecível.
-                              </p>
-                          </div>
-                      </div>
-
-                      <!-- Card 2: Gramado -->
-                      <div class="destination-card bg-white rounded-[24px] border border-slate-100 overflow-hidden flex flex-col h-[360px] shadow-sm">
-                          <div class="destination-image-container h-[200px] w-full overflow-hidden relative">
-                              <img 
-                                  src="https://drive.google.com/thumbnail?id=1hVEZbd71SE2HSn--pl26Wvc84dQwcbJt&sz=w1000" 
-                                  alt="Gramado" 
-                                  class="w-full h-full object-cover"
-                                  onerror="this.src='https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80'"
-                              >
-                          </div>
-                          <div class="p-5 flex-grow flex flex-col justify-center">
-                              <h3 class="text-brandNavy text-lg font-extrabold tracking-tight text-center">Gramado - RS</h3>
-                              <p class="text-slate-500 text-xs font-medium mt-2 leading-relaxed text-center">
-                                  Entre ruas floridas, clima acolhedor e cenários encantadores, Gramado é o lugar ideal para viver momentos a dois.
-                              </p>
-                          </div>
-                      </div>
-
-                      <!-- Card 3: Orlando - Disney -->
-                      <div class="destination-card bg-white rounded-[24px] border border-slate-100 overflow-hidden flex flex-col h-[360px] shadow-sm">
-                          <div class="destination-image-container h-[200px] w-full overflow-hidden relative">
-                              <img 
-                                  src="https://drive.google.com/thumbnail?id=1ruwqYzFldD2YPGqBhNH91vkYqI2-Rxh0&sz=w1000" 
-                                  alt="Orlando Disney" 
-                                  class="w-full h-full object-cover"
-                                  onerror="this.src='https://images.unsplash.com/photo-1602481837187-8c6455152718?auto=format&fit=crop&w=600&q=80'"
-                              >
-                          </div>
-                          <div class="p-5 flex-grow flex flex-col justify-center">
-                              <h3 class="text-brandNavy text-lg font-extrabold tracking-tight text-center">Orlando - Disney</h3>
-                              <p class="text-slate-500 text-xs font-medium mt-2 leading-relaxed text-center">
-                                  Um destino onde sonhos se tornam realidade e a imaginação não tem limites para toda a família se divertir.
-                              </p>
-                          </div>
-                      </div>
-
-                  </div>
-              </div>
-          </section>
-
           <!-- SEÇÃO 1.2: OFERTAS EM DESTAQUE - DESCRIÇÃO EM TÓPICOS E PREÇOS LIMPOS -->
-          <section id="ofertas-destaque" class="w-full bg-white py-16 flex justify-center border-t border-slate-100">
+          <section id="ofertas-destaque" class="w-full bg-white pt-12 pb-6 flex justify-center border-t border-slate-100">
               <div class="w-full max-w-[1140px] flex flex-col gap-10 items-center px-4">
                   
                   <div class="text-center max-w-2xl px-4">
@@ -255,149 +200,326 @@
                       <p class="text-slate-500 font-medium text-sm md:text-base mt-2">Condições especiais e tarifas promocionais monitoradas em tempo real para sua próxima viagem.</p>
                   </div>
 
-                  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full">
-                      
-                      <!-- Card de Oferta 1: Natal - RN -->
-                      <div class="destination-card bg-white rounded-[24px] border border-slate-100 overflow-hidden flex flex-col justify-between h-[560px] shadow-sm">
-                          <div>
-                              <div class="destination-image-container h-[180px] w-full overflow-hidden relative">
-                                  <img 
-                                      src="https://lh3.googleusercontent.com/d/1vJLXFoHjj1NDAUdvcZbHxm44dSFfuYgy=w1000"
-                                      alt="Natal - RN" 
-                                      class="w-full h-full object-cover"
-                                  >
-                              </div>
-                              <div class="p-6">
-                                  <h3 class="text-brandNavy text-lg font-extrabold tracking-tight text-center">Natal - RN</h3>
-                                  
-                                  <ul class="text-slate-500 text-xs font-medium mt-3 space-y-1 text-left list-disc list-inside max-w-[280px] mx-auto">
-                                      <li>Voo direto de ida e volta saindo de São Paulo</li>
-                                      <li>4 noites em de acomodação dupla</li>
-                                      <li>Café da Manhã</li>
-                                      <li>Transfer de chegada e saída</li>
-                                  </ul>
+                  <div class="carrossel-ofertas w-full">
+<!-- Nac 1: Natal -->
+                    <div class="destination-card bg-white rounded-[24px] border border-slate-100 overflow-hidden flex flex-col justify-between h-[540px] shadow-sm">
+                        <div>
+                            <div class="destination-image-container h-[180px] w-full overflow-hidden">
+                                <img src="img/site/1vJLXFoHjj1NDAUdvcZbHxm44dSFfuYgy.webp">
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-brandNavy text-base font-extrabold tracking-tight text-center">Natal - RN</h3>
+                                <ul class="text-slate-500 text-[11px] font-medium mt-3 space-y-1 text-left list-disc list-inside max-w-[220px] mx-auto">
+                                    <li>Voo direto saindo de São Paulo</li>
+                                    <li>4 noites em acomodação dupla</li>
+                                    <li>Café da Manhã</li>
+                                    <li>Transfer de chegada e saída</li>
+                                </ul>
+                                <div class="mt-3 text-center">
+                                    <span class="text-brandNavy text-lg font-black block">R$ 1.882 <span class="text-[10px] text-slate-500 font-semibold">/ pessoa</span></span>
+                                    <span class="text-[10px] text-emerald-600 font-bold block mt-0.5">Até 12x sem juros no cartão ou boleto</span>
+                                    <span class="text-[10px] text-slate-400 block">Valor para 2 pessoas: R$ 3.764</span>
+                                    <span class="text-[9px] text-slate-400 italic block mt-0.5">*Os preços podem variar sem aviso prévio</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-5">
+                            <a href="https://wa.me/5535984231966?text=Olá,%20vim%20do%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20oferta%20do%20Natal" target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-brandTeal hover:bg-brandTealDark text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all duration-300">
+                                <span>Ver mais</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
 
-                                  <div class="mt-4 text-center">
-                                      <span class="text-brandNavy text-2xl font-black block">R$ 1.882 <span class="text-xs text-slate-500 font-semibold">/ pessoa</span></span>
-                                      <span class="text-xs text-emerald-600 font-bold block mt-1">em até 12x sem juros no cartão ou boleto</span>
-                                      <span class="text-[11px] text-slate-400 block mt-1">Valor para 2 pessoas: R$ 3.764</span>
-                                      <span class="text-[10px] text-slate-400 italic block mt-1.5">*Os preços podem variar sem aviso prévio</span>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="px-6 pb-6 pt-2">
-                              <a 
-                                  href="https://wa.me/5535984231966?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20oferta%20de%20Natal%20RN." 
-                                  target="_blank" 
-                                  class="w-full inline-flex items-center justify-center gap-2 bg-brandTeal hover:bg-brandTealDark text-white font-bold text-sm py-3 px-6 rounded-xl transition-all duration-300 shadow-md hover:shadow-teal-500/20"
-                              >
-                                  <span>Reserve Agora</span>
-                                  <i class="fa-solid fa-arrow-right arrow-icon text-xs"></i>
-                              </a>
-                          </div>
-                      </div>
+<!-- Int 1: Buenos Aires -->
+                    <div class="destination-card bg-white rounded-[24px] border border-slate-100 overflow-hidden flex flex-col justify-between h-[540px] shadow-sm">
+                        <div>
+                            <div class="destination-image-container h-[180px] w-full overflow-hidden">
+                                <img src="img/site/1v8WVm2mW8KzZ4cCIukqgqyikzJtOgRvI.webp" alt="Buenos Aires" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-brandNavy text-base font-extrabold tracking-tight text-center">Buenos Aires - Argentina</h3>
+                                <ul class="text-slate-500 text-[11px] font-medium mt-3 space-y-1 text-left list-disc list-inside max-w-[220px] mx-auto">
+                                    <li>Voo direto saindo de São Paulo</li>
+                                    <li>4 noites Hotel | Café da manhã</li>
+                                    <li>Transfer de chegada e saída</li>
+                                    <li>Seguro viagem</li>
+                                </ul>
+                                <div class="mt-3 text-center">
+                                    <span class="text-brandNavy text-lg font-black block">R$ 3.410 <span class="text-[10px] text-slate-500 font-semibold">/ pessoa</span></span>
+                                    <span class="text-[10px] text-emerald-600 font-bold block mt-0.5">Até 12x sem juros no cartão ou boleto</span>
+                                    <span class="text-[10px] text-slate-400 block">Valor para 2 pessoas: R$ 6.820</span>
+                                    <span class="text-[9px] text-slate-400 italic block mt-0.5">*Os preços podem variar sem aviso prévio</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-5">
+                            <a href="https://wa.me/5535984231966?text=Olá,%20vim%20do%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20oferta%20de%20Buenos%20Aires" target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-brandTeal hover:bg-brandTealDark text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all duration-300">
+                                <span>Ver mais</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
 
-                      <!-- Card de Oferta 2: Buenos Aires -->
-                      <div class="destination-card bg-white rounded-[24px] border border-slate-100 overflow-hidden flex flex-col justify-between h-[560px] shadow-sm">
-                          <div>
-                              <div class="destination-image-container h-[180px] w-full overflow-hidden relative">
-                                  <img 
-                                      src="https://lh3.googleusercontent.com/d/1v8WVm2mW8KzZ4cCIukqgqyikzJtOgRvI=w1000" 
-                                      alt="Buenos Aires" 
-                                      class="w-full h-full object-cover"
-                                  >
-                              </div>
-                              <div class="p-6">
-                                  <h3 class="text-brandNavy text-lg font-extrabold tracking-tight text-center">Buenos Aires — Argentina</h3>
-                                  
-                                  <ul class="text-slate-500 text-xs font-medium mt-3 space-y-1 text-left list-disc list-inside max-w-[280px] mx-auto">
-                                      <li>Voo direto saindo de São Paulo</li>
-                                      <li>4 noites Hotel | Café da manhã</li>
-                                      <li>Transfer de chegada e saída</li>
-                                      <li>Seguro viagem</li>
-                                  </ul>
+<!-- Nac 2: Porto Seguro -->
+                    <div class="destination-card bg-white rounded-[24px] border border-slate-100 overflow-hidden flex flex-col justify-between h-[540px] shadow-sm">
+                        <div>
+                            <div class="destination-image-container h-[180px] w-full overflow-hidden">
+                                <img src="img/site/1GG2d6ROoTjOSVNnZGANozgCCzMoZJCWu.webp" alt="Porto Seguro" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-brandNavy text-base font-extrabold tracking-tight text-center">Porto Seguro - BA</h3>
+                                <ul class="text-slate-500 text-[11px] font-medium mt-3 space-y-1 text-left list-disc list-inside max-w-[220px] mx-auto">
+                                    <li>Voo direto saindo de São Paulo</li>
+                                    <li>5 noites em acomodação dupla</li>
+                                    <li>Café da Manhã</li>
+                                    <li>Transfer de chegada e saída</li>
+                                </ul>
+                                <div class="mt-3 text-center">
+                                    <span class="text-brandNavy text-lg font-black block">R$ 1.920 <span class="text-[10px] text-slate-500 font-semibold">/ pessoa</span></span>
+                                    <span class="text-[10px] text-emerald-600 font-bold block mt-0.5">Até 12x sem juros no cartão ou boleto</span>
+                                    <span class="text-[10px] text-slate-400 block">Valor para 2 pessoas: R$ 3.840</span>
+                                    <span class="text-[9px] text-slate-400 italic block mt-0.5">*Os preços podem variar sem aviso prévio</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-5">
+                            <a href="https://wa.me/5535984231966?text=Olá,%20vim%20do%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20oferta%20de%20Porto%20Seguro" target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-brandTeal hover:bg-brandTealDark text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all duration-300">
+                                <span>Ver mais</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
 
-                                  <div class="mt-4 text-center">
-                                      <span class="text-brandNavy text-2xl font-black block">R$ 3.410 <span class="text-xs text-slate-500 font-semibold">/ pessoa</span></span>
-                                      <span class="text-xs text-emerald-600 font-bold block mt-1">em até 12x sem juros no cartão ou boleto</span>
-                                      <span class="text-[11px] text-slate-400 block mt-1">Valor para 2 pessoas: R$ 6.820</span>
-                                      <span class="text-[10px] text-slate-400 italic block mt-1.5">*Os preços podem variar sem aviso prévio</span>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="px-6 pb-6 pt-2">
-                              <a 
-                                  href="https://wa.me/5535984231966?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20oferta%20de%20Buenos%20Aires." 
-                                  target="_blank" 
-                                  class="w-full inline-flex items-center justify-center gap-2 bg-brandTeal hover:bg-brandTealDark text-white font-bold text-sm py-3 px-6 rounded-xl transition-all duration-300 shadow-md hover:shadow-teal-500/20"
-                              >
-                                  <span>Reserve Agora</span>
-                                  <i class="fa-solid fa-arrow-right arrow-icon text-xs"></i>
-                              </a>
-                          </div>
-                      </div>
-
-                      <!-- Card de Oferta 3: Porto de Galinhas -->
-                      <div class="destination-card bg-white rounded-[24px] border border-slate-100 overflow-hidden flex flex-col justify-between h-[560px] shadow-sm">
-                          <div>
-                              <div class="destination-image-container h-[180px] w-full overflow-hidden relative">
-                                  <img 
-                                      src="https://lh3.googleusercontent.com/d/1a8P6_N7IVfUWK0XI9XzCvOHy6mMrcUBk=w1000" 
-                                      alt="Porto de Galinhas" 
-                                      class="w-full h-full object-cover"
-                                  >
-                              </div>
-                              <div class="p-6">
-                                  <h3 class="text-brandNavy text-lg font-extrabold tracking-tight text-center">Porto de Galinhas - PE </h3>
-                                  
-                                  <ul class="text-slate-500 text-xs font-medium mt-3 space-y-1 text-left list-disc list-inside max-w-[280px] mx-auto">
-                                      <li>Voo direto saindo de São Paulo</li>
-                                      <li>4 noites de acomodação dupla</li>
-                                      <li>Café da Manhã</li>
-                                      <li>Transfer de chegada e saída</li>
-                                  </ul>
-
-                                  <div class="mt-4 text-center">
-                                      <span class="text-brandNavy text-2xl font-black block">R$ 2.130 <span class="text-xs text-slate-500 font-semibold">/ pessoa</span></span>
-                                      <span class="text-xs text-emerald-600 font-bold block mt-1">em até 12x sem juros no cartão ou boleto</span>
-                                      <span class="text-[11px] text-slate-400 block mt-1">Valor para 2 pessoas: R$ 4.260</span>
-                                      <span class="text-[10px] text-slate-400 italic block mt-1.5">*Os preços podem variar sem aviso prévio</span>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="px-6 pb-6 pt-2">
-                              <a 
-                                  href="https://wa.me/5535984231966?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20oferta%20de%20Porto%20de%20Galinhas." 
-                                  target="_blank" 
-                                  class="w-full inline-flex items-center justify-center gap-2 bg-brandTeal hover:bg-brandTealDark text-white font-bold text-sm py-3 px-6 rounded-xl transition-all duration-300 shadow-md hover:shadow-teal-500/20"
-                              >
-                                  <span>Reserve Agora</span>
-                                  <i class="fa-solid fa-arrow-right arrow-icon text-xs"></i>
-                              </a>
-                          </div>
-                      </div>
-
+<!-- Nac 3: Porto de Galinhas -->
+                    <div class="destination-card bg-white rounded-[24px] border border-slate-100 overflow-hidden flex flex-col justify-between h-[540px] shadow-sm">
+                        <div>
+                            <div class="destination-image-container h-[180px] w-full overflow-hidden">
+                                <img src="img/site/1cigygN3YMWVx7w2l9SgHRAZPAIhl9n2O.webp" alt="Natal" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-brandNavy text-base font-extrabold tracking-tight text-center">Porto de Galinhas - PE</h3>
+                                <ul class="text-slate-500 text-[11px] font-medium mt-3 space-y-1 text-left list-disc list-inside max-w-[220px] mx-auto">
+                                    <li>Voo direto saindo de São Paulo</li>
+                                    <li>4 noites de acomodação dupla</li>
+                                    <li>Café da Manhã</li>
+                                    <li>Transfer de chegada e saída</li>
+                                </ul>
+                                <div class="mt-3 text-center">
+                                    <span class="text-brandNavy text-lg font-black block">R$ 2.130 <span class="text-[10px] text-slate-500 font-semibold">/ pessoa</span></span>
+                                    <span class="text-[10px] text-emerald-600 font-bold block mt-0.5">Até 12x sem juros no cartão ou boleto</span>
+                                    <span class="text-[10px] text-slate-400 block">Valor para 2 pessoas: R$ 4.260</span>
+                                    <span class="text-[9px] text-slate-400 italic block mt-0.5">*Os preços podem variar sem aviso prévio</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-5">
+                            <a href="https://wa.me/5535984231966?text=Olá,%20vim%20do%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20oferta%20de%20Porto%20de%20Galinhas" target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-brandTeal hover:bg-brandTealDark text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all duration-300">
+                                <span>Ver mais</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
                   </div>
 
                   <!-- Botão "Acompanhe mais ofertas" com ação SPA -->
-                  <div class="w-full flex justify-center mt-12">
-                      <button 
+                  <div class="w-full flex justify-center mt-0">
+                      <a href="ofertas.html"
                           onclick="showOffersPage(event)" 
                           class="inline-flex items-center justify-center gap-2.5 border-2 border-brandTeal text-brandTeal hover:bg-brandTeal hover:text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-teal-500/20"
                       >
-                          <span>Acompanhe mais ofertas</span>
-                          <i class="fa-solid fa-tags text-sm"></i>
-                      </button>
+                          <span>Ver todas as ofertas</span>
+                          <i class="fa-solid fa-arrow-right text-sm"></i>
+                      </a>
                   </div>
 
               </div>
           </section>
 
+
+          <!-- SEÇÃO 1.3: CIRCUITOS INTERNACIONAIS EM GRUPO (4 da página circuitos.html) -->
+          <section id="circuitos-destaque" class="w-full bg-white pt-6 pb-6 flex justify-center">
+              <div class="w-full max-w-[1140px] flex flex-col gap-10 items-center px-4">
+                  <div class="text-center max-w-2xl px-4">
+                      <span class="text-brandTeal text-xs md:text-sm font-extrabold tracking-widest uppercase bg-teal-50 px-4 py-2 rounded-full border border-teal-100/50">Grupos</span>
+                      <h2 class="text-brandNavy text-3xl md:text-4xl font-extrabold mt-4 tracking-tight leading-tight">Grupos - Circuitos internacionais</h2>
+                      <p class="text-slate-500 font-medium text-sm md:text-base mt-2">Roteiros em grupo pela Europa, com guia acompanhante, hotéis e passeios incluídos.</p>
+                  </div>
+                  <div class="carrossel-ofertas w-full">
+                    <div data-reais="1" data-regiao="Itália" data-preco="995" data-dias="6" data-paises="Itália" data-top="0" class="destination-card bg-white rounded-[24px] border border-slate-100 overflow-hidden flex flex-col justify-between h-[540px] shadow-sm">
+                        <div>
+                            <div class="destination-image-container h-[180px] w-full overflow-hidden">
+                                <img src="img/site/1SOVsd4dOjM54jWwSJHYEvJbFwcEN_QSJ.webp" alt="Circuito Europa" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-brandNavy text-base font-extrabold tracking-tight text-center">Maravilhas da Itália</h3>
+                                <ul class="text-slate-500 text-[11px] font-medium mt-3 space-y-1 text-left list-disc list-inside max-w-[220px] mx-auto">
+                                    <li>6 Dias</li>
+                                    <li class="oferta-cidades"><span class="cid">Veneza <em>1 noite</em></span><span class="cid">Florença <em>1 noite</em></span><span class="cid">Roma <em>3 noites</em></span><span class="cid-pass">Passando por Pisa</span></li>
+                                    <li>5 noites de hospedagem com café da manhã</li>
+                                    <li>1 jantar em Florença</li>
+                                    <li>Visitas com guia local em Florença e Roma</li>
+                                    <li>Passeio de barco pela Lagoa de Veneza</li>
+                                    <li>Passeio a pé pelo bairro de Trastevere</li>
+                                    <li>Ônibus de turismo e guia acompanhante</li>
+                                    <li>Traslados de chegada e saída e taxas hoteleiras</li>
+                                </ul>
+                                <div class="mt-3 text-center">
+                                    <span class="text-[10px] text-slate-500 font-semibold block">A partir de</span>
+                                    <span class="text-brandNavy text-lg font-black block">EUR 995<sup class="ast">*</sup> <span class="text-[10px] text-slate-500 font-semibold">/ pessoa em quarto duplo</span></span>
+                                    <span class="text-[10px] text-emerald-600 font-bold block mt-0.5">Até 10x sem juros no cartão</span>
+                                    <span class="text-[10px] text-slate-500 font-semibold block mt-1">Consulte valor adicional para quarto single</span>
+                                    <span class="oferta-nao-inclui text-[10px] block mt-1">Não inclui aéreo e seguro viagem</span>
+                                </div>
+                                <div class="oferta-detalhes oferta-saidas hidden">
+                                    <p class="oferta-saidas-tit">Próximas saídas</p>
+                                    <p class="oferta-semana">Início sempre às terças e término no domingo</p>
+                                    <p class="text-[12px] text-slate-600 mt-1"><b>2026:</b> Nov 24 · Dez 08, 22, 29</p><p class="text-[12px] text-slate-600 mt-1"><b>2027:</b> Jan 05, 19 · Fev 02, 16 · Mar 02, 09, 16, 30 · Abr 06</p>
+                                </div>
+                                <p class="oferta-rodape hidden">*Valor em reais aproximado, calculado com uma estimativa do câmbio do euro, apenas como referência. Não reflete o câmbio do pagamento: o valor final em reais é calculado pelo câmbio do dia do fechamento.</p>
+                                <div class="oferta-roteiro hidden"><ol><li><b>1º dia – Veneza:</b> Chegada ao aeroporto de Veneza, recepção e traslado ao hotel (quarto disponível após as 14h00). Hospedagem. Às 19h00, na recepção do hotel, reunião com o guia para apresentação dos participantes. Possibilidade de fazer opcionalmente o tour Veneza Iluminada e passeio de lancha pelo Grande Canal.</li><li><b>2º dia – Veneza / Pisa / Florença:</b> Café da manhã. Início de um pequeno passeio de barco pela Lagoa de Veneza até chegar à Praça de São Marcos, onde faremos um tour de orientação destacando a Basílica de São Marcos, a Torre Campanário e o Palácio Ducal. Possibilidade de assistir à criação de verdadeiras obras de arte em cristal de Murano. Opcionalmente, poderá fazer um passeio de gôndola pelos canais do centro de Veneza. Continuação da viagem para Pisa para conhecer a famosa Torre Inclinada. Seguimos viagem para Florença. Jantar e hospedagem.</li><li><b>3º dia – Florença / Roma:</b> Café da manhã. Saída para visita panorâmica a pé para admirar a Praça della Signoria, o Duomo com a Basílica de Santa Maria del Fiore, o Batistério e a Ponte Vecchio. Tempo livre e, à tarde, continuação para Roma. Chegada e visitas opcionais à Roma Barroca e/ou jantar especial com música. Hospedagem.</li><li><b>4º dia – Roma:</b> Café da manhã. Opcionalmente, visita aos Museus do Vaticano e Capela Sistina. Saída para visita panorâmica da cidade, passando pelo Lungotevere, Porta Portese, Pirâmide, Porta Ostiense, Termas de Caracala, Santa Maria Maior, São João de Latrão, Coliseu, Fóruns Imperiais, Piazza Venezia, Teatro Marcello, Circo Máximo, Boca da Verdade e, para finalizar, o Capitólio. Este passeio inclui uma visita a pé pelo bairro de Trastevere. Tarde livre. Visita opcional ao Coliseu e Fóruns Romanos. Hospedagem.</li><li><b>5º dia – Roma:</b> Café da manhã. Dia livre para atividades pessoais. Possibilidade de fazer um tour opcional a Nápoles e Capri. Hospedagem.</li><li><b>6º dia – Roma / Brasil:</b> Café da manhã e tempo livre até a hora do traslado ao aeroporto (quarto disponível até as 10h ou 12h, conforme norma do hotel). Fim da viagem.</li></ol></div>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-5">
+                            <a href="circuitos.html" class="w-full inline-flex items-center justify-center gap-2 bg-brandTeal hover:bg-brandTealDark text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all duration-300">
+                                <span>Ver mais</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div data-reais="1" data-regiao="Europa Ocidental" data-preco="1295" data-dias="7" data-paises="Inglaterra|França" data-top="1" class="destination-card bg-white rounded-[24px] border border-slate-100 overflow-hidden flex flex-col justify-between h-[540px] shadow-sm">
+                        <div>
+                            <div class="destination-image-container h-[180px] w-full overflow-hidden">
+                                <img src="img/site/1xcNf_44g7cX2N4MBcPy3mWGyGIKnF0fF.webp" alt="Circuito Itália" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-brandNavy text-base font-extrabold tracking-tight text-center">Londres e Paris</h3>
+                                <ul class="text-slate-500 text-[11px] font-medium mt-3 space-y-1 text-left list-disc list-inside max-w-[220px] mx-auto">
+                                    <li>7 Dias</li>
+                                    <li class="oferta-cidades"><span class="cid">Londres <em>3 noites</em></span><span class="cid">Paris <em>3 noites</em></span><span class="cid-pass">Passando por Canal da Mancha</span></li>
+                                    <li>6 noites de hospedagem com café da manhã</li>
+                                    <li>Visitas com guia local em Londres e Paris</li>
+                                    <li>Travessia do Canal da Mancha de ferry</li>
+                                    <li>Ônibus de turismo e guia acompanhante</li>
+                                    <li>Traslados de chegada e saída e taxas hoteleiras</li>
+                                </ul>
+                                <div class="mt-3 text-center">
+                                    <span class="text-[10px] text-slate-500 font-semibold block">A partir de</span>
+                                    <span class="text-brandNavy text-lg font-black block">EUR 1.295<sup class="ast">*</sup> <span class="text-[10px] text-slate-500 font-semibold">/ pessoa em quarto duplo</span></span>
+                                    <span class="text-[10px] text-emerald-600 font-bold block mt-0.5">Até 10x sem juros no cartão</span>
+                                    <span class="text-[10px] text-slate-500 font-semibold block mt-1">Consulte valor adicional para quarto single</span>
+                                    <span class="oferta-nao-inclui text-[10px] block mt-1">Não inclui aéreo e seguro viagem</span>
+                                </div>
+                                <div class="oferta-detalhes oferta-saidas hidden">
+                                    <p class="oferta-saidas-tit">Próximas saídas</p>
+                                    <p class="oferta-semana">Início sempre às segundas e término no domingo</p>
+                                    <p class="text-[12px] text-slate-600 mt-1"><b>2026:</b> Nov 30 · Dez 14, 28</p><p class="text-[12px] text-slate-600 mt-1"><b>2027:</b> Jan 11, 25 · Fev 08, 22 · Mar 01, 29</p>
+                                </div>
+                                <p class="oferta-rodape hidden">*Valor em reais aproximado, calculado com uma estimativa do câmbio do euro, apenas como referência. Não reflete o câmbio do pagamento: o valor final em reais é calculado pelo câmbio do dia do fechamento.</p>
+                                <div class="oferta-roteiro hidden"><ol><li><b>1º dia – Londres:</b> Chegada ao aeroporto de Londres, recepção e traslado ao hotel (quarto disponível após as 14h00). Hospedagem. Às 19h00, na recepção do hotel, reunião com o guia para apresentação dos participantes.</li><li><b>2º dia – Londres:</b> Café da manhã. De manhã, visita panorâmica da cidade, com breve parada para admirar o Parlamento, o Big Ben e a Abadia de Westminster. Continuação por Trafalgar Square, Piccadilly Circus, Regent Street etc. Prosseguiremos a visita com possibilidade de assistir à troca da guarda. Tarde livre. Visita opcional de Londres Histórica com pub. Hospedagem.</li><li><b>3º dia – Londres:</b> Café da manhã. Dia livre para atividades pessoais. Hospedagem.</li><li><b>4º dia – Londres / Canal da Mancha / Paris:</b> Café da manhã. Saída em direção a Dover para embarque no ferry, atravessando o Canal da Mancha. Chegada a Calais e continuação da viagem por estrada até Paris. Hospedagem. Paris é uma das cidades mais belas do mundo e uma das mais visitadas, uma cidade mágica com encanto especial. À noite, visita opcional de Paris Iluminada. (Por motivos operacionais e dependendo do número de passageiros, este trajeto pode ser feito de trem.)</li><li><b>5º dia – Paris:</b> Café da manhã. Visita panorâmica da cidade passando por: Champs-Élysées, Praça da Concórdia, Arco do Triunfo, Ópera, Bairro Latino, Sorbonne, Panteão, Inválidos, Escola Militar, Campo de Marte etc. Tarde livre. Visita opcional ao Cruzeiro no Sena, Bateaux Mouche + Montmartre e/ou, à noite, poderá assistir opcionalmente a um show em um dos cabarés noturnos de Paris. Hospedagem.</li><li><b>6º dia – Paris:</b> Café da manhã. Dia livre para poder desfrutar opcionalmente da visita ao Palácio e Jardins de Versalhes. Hospedagem.</li><li><b>7º dia – Paris / Brasil:</b> Café da manhã e tempo livre até a hora do traslado ao aeroporto (quarto disponível até as 10h ou 12h, conforme norma do hotel). Fim da viagem.</li></ol></div>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-5">
+                            <a href="circuitos.html" class="w-full inline-flex items-center justify-center gap-2 bg-brandTeal hover:bg-brandTealDark text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all duration-300">
+                                <span>Ver mais</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div data-reais="1" data-regiao="Europa Central e Leste" data-preco="1075" data-dias="8" data-paises="República Tcheca|Eslováquia|Áustria|Hungria" data-top="0" class="destination-card bg-white rounded-[24px] border border-slate-100 overflow-hidden flex flex-col justify-between h-[540px] shadow-sm">
+                        <div>
+                            <div class="destination-image-container h-[180px] w-full overflow-hidden">
+                                <img src="img/site/1vOGnnmZuzxph7HBjZt0T3D2MmbTxekzc.webp" alt="Circuito Ibérico" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-brandNavy text-base font-extrabold tracking-tight text-center">Capitais da Europa Central</h3>
+                                <ul class="text-slate-500 text-[11px] font-medium mt-3 space-y-1 text-left list-disc list-inside max-w-[220px] mx-auto">
+                                    <li>8 Dias</li>
+                                    <li class="oferta-cidades"><span class="cid">Praga <em>3 noites</em></span><span class="cid">Viena <em>2 noites</em></span><span class="cid">Budapeste <em>2 noites</em></span><span class="cid-pass">Passando por Bratislava</span></li>
+                                    <li>7 noites de hospedagem com café da manhã</li>
+                                    <li>Visitas com guia local em Praga, Viena e Budapeste</li>
+                                    <li>Passeio a pé pelo centro histórico de Viena</li>
+                                    <li>Ônibus de turismo e guia acompanhante</li>
+                                    <li>Traslados de chegada e saída e taxas hoteleiras</li>
+                                </ul>
+                                <div class="mt-3 text-center">
+                                    <span class="text-[10px] text-slate-500 font-semibold block">A partir de</span>
+                                    <span class="text-brandNavy text-lg font-black block">EUR 1.075<sup class="ast">*</sup> <span class="text-[10px] text-slate-500 font-semibold">/ pessoa em quarto duplo</span></span>
+                                    <span class="text-[10px] text-emerald-600 font-bold block mt-0.5">Até 10x sem juros no cartão</span>
+                                    <span class="text-[10px] text-slate-500 font-semibold block mt-1">Consulte valor adicional para quarto single</span>
+                                    <span class="oferta-nao-inclui text-[10px] block mt-1">Não inclui aéreo e seguro viagem</span>
+                                </div>
+                                <div class="oferta-detalhes oferta-saidas hidden">
+                                    <p class="oferta-saidas-tit">Próximas saídas</p>
+                                    <p class="oferta-semana">Início sempre às terças e término na terça</p>
+                                    <p class="text-[12px] text-slate-600 mt-1"><b>2026:</b> Nov 24 · Dez 08, 15, 22, 29</p><p class="text-[12px] text-slate-600 mt-1"><b>2027:</b> Jan 05, 19 · Fev 02, 16 · Mar 02, 15, 30 · Abr 06</p>
+                                </div>
+                                <p class="oferta-rodape hidden">*Valor em reais aproximado, calculado com uma estimativa do câmbio do euro, apenas como referência. Não reflete o câmbio do pagamento: o valor final em reais é calculado pelo câmbio do dia do fechamento.</p>
+                                <div class="oferta-roteiro hidden"><ol><li><b>1º dia – Praga:</b> Chegada ao aeroporto de Praga, recepção e traslado ao hotel (quarto disponível após as 14h00). Hospedagem. Praga é uma das cidades mais belas do mundo e uma das mais visitadas, uma cidade mágica com encanto especial. Às 19h00, na recepção do hotel, reunião com o guia para apresentação dos participantes.</li><li><b>2º dia – Praga:</b> Café da manhã. Saída para uma visita panorâmica destacando a Torre da Pólvora, Praça Venceslau, a Prefeitura com sua torre e o famoso relógio astronômico, o Bairro Judeu e a Ponte Carlos. Tarde livre. Hospedagem.</li><li><b>3º dia – Praga:</b> Café da manhã. Dia livre. Visita opcional à Praga Artística e/ou concerto de música clássica. Hospedagem.</li><li><b>4º dia – Praga / Bratislava / Viena:</b> Após o café da manhã, saída em direção a Bratislava. Chegada e início do tour de orientação na capital eslovaca, antiga Presburgo, uma das cidades do Império Austro-Húngaro. Continuação da viagem até Viena. Chegada e visita panorâmica passando pela famosa Ringstrasse, avenida que circunda a cidade. Passaremos pela Ópera, Museu de Belas Artes, Parlamento, Universidade, Igreja Votiva, Palácio Belvedere e Prater. O tour inclui um passeio a pé pelo centro histórico de Viena, que terminará na Catedral de Santo Estêvão. Hospedagem.</li><li><b>5º dia – Viena:</b> Café da manhã. Dia livre. Visita opcional Viena Artística (Palácio de Schönbrunn com audioguia e jardins) e/ou concerto de música clássica em um palácio vienense. Hospedagem.</li><li><b>6º dia – Viena / Budapeste:</b> Café da manhã. Saída para Budapeste, conhecida como a Rainha do Danúbio. Chegada e visita panorâmica percorrendo as zonas de Buda e Peste, o Bastião dos Pescadores, a Praça dos Heróis com sua colunata e a Avenida Andrássy, Patrimônio da Humanidade. Opcionalmente, poderá assistir a um show cigano com jantar e cruzeiro pelo Danúbio iluminado. Hospedagem.</li><li><b>7º dia – Budapeste:</b> Café da manhã. Dia livre. Visita opcional à Budapeste Artística, com entrada na Basílica de Santo Estêvão e na Sinagoga. Hospedagem.</li><li><b>8º dia – Budapeste / Brasil:</b> Café da manhã e tempo livre até a hora do traslado ao aeroporto (quarto disponível até as 10h ou 12h, conforme norma do hotel). Fim da viagem.</li></ol></div>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-5">
+                            <a href="circuitos.html" class="w-full inline-flex items-center justify-center gap-2 bg-brandTeal hover:bg-brandTealDark text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all duration-300">
+                                <span>Ver mais</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div data-reais="1" data-regiao="Europa Ocidental" data-preco="1440" data-dias="8" data-paises="França|Bélgica|Holanda" data-top="0" class="destination-card bg-white rounded-[24px] border border-slate-100 overflow-hidden flex flex-col justify-between h-[540px] shadow-sm">
+                        <div>
+                            <div class="destination-image-container h-[180px] w-full overflow-hidden">
+                                <img src="img/site/1JtyO4DSliUTtFhbpBZgv0P3bMmtW3zQS.webp" alt="Circuito Marrocos" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-brandNavy text-base font-extrabold tracking-tight text-center">Paris e Países Baixos</h3>
+                                <ul class="text-slate-500 text-[11px] font-medium mt-3 space-y-1 text-left list-disc list-inside max-w-[220px] mx-auto">
+                                    <li>8 Dias</li>
+                                    <li class="oferta-cidades"><span class="cid">Paris <em>3 noites</em></span><span class="cid">Bruxelas <em>1 noite</em></span><span class="cid">Bruges <em>1 noite</em></span><span class="cid">Amsterdã <em>2 noites</em></span><span class="cid-pass">Passando por Gante, Roterdã, Delft e Haia</span></li>
+                                    <li>7 noites de hospedagem com café da manhã</li>
+                                    <li>Visitas com guia local em Paris, Bruxelas, Gante, Bruges e Amsterdã</li>
+                                    <li>Passeio de barco pelos canais de Amsterdã</li>
+                                    <li>Ônibus de turismo e guia acompanhante</li>
+                                    <li>Traslados de chegada e saída, taxas hoteleiras e seguro turístico básico</li>
+                                    <li>Opção de extensão ao Vale do Reno</li>
+                                </ul>
+                                <div class="mt-3 text-center">
+                                    <span class="text-[10px] text-slate-500 font-semibold block">A partir de</span>
+                                    <span class="text-brandNavy text-lg font-black block">EUR 1.440<sup class="ast">*</sup> <span class="text-[10px] text-slate-500 font-semibold">/ pessoa em quarto duplo</span></span>
+                                    <span class="text-[10px] text-emerald-600 font-bold block mt-0.5">Até 10x sem juros no cartão</span>
+                                    <span class="text-[10px] text-slate-500 font-semibold block mt-1">Consulte valor adicional para quarto single</span>
+                                    <span class="oferta-nao-inclui text-[10px] block mt-1">Não inclui aéreo e seguro viagem</span>
+                                </div>
+                                <div class="oferta-detalhes oferta-saidas hidden">
+                                    <p class="oferta-saidas-tit">Próximas saídas</p>
+                                    <p class="oferta-semana">Início sempre aos domingos e término no domingo</p>
+                                    <p class="text-[12px] text-slate-600 mt-1"><b>2026:</b> Nov 29 · Dez 13, 20, 27</p><p class="text-[12px] text-slate-600 mt-1"><b>2027:</b> Jan 10, 24 · Fev 07, 21 · Mar 07, 21, 28</p>
+                                </div>
+                                <p class="oferta-rodape hidden">*Valor em reais aproximado, calculado com uma estimativa do câmbio do euro, apenas como referência. Não reflete o câmbio do pagamento: o valor final em reais é calculado pelo câmbio do dia do fechamento.</p>
+                                <div class="oferta-roteiro hidden"><ol><li><b>1º dia – Paris:</b> Chegada ao aeroporto de Paris, recepção e traslado ao hotel (quarto disponível após as 14h00). Hospedagem. Às 19h00, na recepção do hotel, reunião com o guia para apresentação dos participantes. À noite, visita opcional de Paris Iluminada.</li><li><b>2º dia – Paris:</b> Café da manhã. Visita panorâmica da cidade passando por: Champs-Élysées, Praça da Concórdia, Arco do Triunfo, Ópera, Bairro Latino, Sorbonne etc. Tarde livre. Possibilidade de fazer um cruzeiro pelo Sena em barco fluvial + Montmartre e/ou assistir a um espetáculo em um dos cabarés noturnos de Paris. Hospedagem.</li><li><b>3º dia – Paris:</b> Café da manhã. Dia livre para passear nesta bela cidade. Opcionalmente, visita ao Palácio de Versalhes com seus jardins. Hospedagem.</li><li><b>4º dia – Paris / Bruxelas:</b> Café da manhã e partida para a Bélgica. Chegada a Bruxelas e início da visita panorâmica para observar os edifícios mais representativos da cidade. Destacamos a Grand Place, o Atomium, a Catedral de São Miguel e o Manneken Pis, símbolo da cidade. Não poderá deixar a cidade sem provar a sua cerveja e o seu chocolate. Hospedagem.</li><li><b>5º dia – Bruxelas / Gante / Bruges:</b> Café da manhã e saída em direção a Gante. Início da visita pelo centro histórico, passando pela Catedral de São Bavão, onde se pode admirar o políptico &quot;A Adoração do Cordeiro Místico&quot;, de Jan Van Eyck. Continuação da viagem até Bruges, cidade que conserva toda a sua beleza medieval. Visita panorâmica: Basílica do Sangue Sagrado, Praça Maior, os românticos canais da cidade e o Lago do Amor. Hospedagem.</li><li><b>6º dia – Bruges / Roterdã / Delft / Haia / Amsterdã:</b> Café da manhã e saída para Roterdã, maior porto da Europa. Em seguida, continuação para Delft, conhecida por sua famosa porcelana. Chegada a Haia, capital administrativa da Holanda e sede real. Tempo livre antes de seguir para Amsterdã. Hospedagem.</li><li><b>7º dia – Amsterdã:</b> Café da manhã. Visita panorâmica nos arredores do centro de Amsterdã, passando pelo bairro judeu, museu marítimo e porto. Após, passeio de barco pelos canais, passando pelos principais pontos turísticos, como o Rijksmuseum, o mítico cinturão de canais, o Rio Amstel e suas comportas, a Curva de Ouro, a famosa ponte Magere Brug e parte do bairro judeu até o antigo porto e a fábrica de cerveja Heineken. Tarde livre para, opcionalmente, visitar Marken, Volendam e os moinhos de Zaanse Schans. Hospedagem.</li><li><b>8º dia – Amsterdã / Brasil:</b> Café da manhã e tempo livre até a hora do traslado ao aeroporto (quarto disponível até as 10h ou 12h, conforme norma do hotel). Fim da viagem.</li></ol></div>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-5">
+                            <a href="circuitos.html" class="w-full inline-flex items-center justify-center gap-2 bg-brandTeal hover:bg-brandTealDark text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all duration-300">
+                                <span>Ver mais</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="w-full flex justify-center mt-0">
+                      <a href="circuitos.html" class="inline-flex items-center justify-center gap-2.5 border-2 border-brandTeal text-brandTeal hover:bg-brandTeal hover:text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-teal-500/20">
+                          <span>Ver mais grupos</span>
+                          <i class="fa-solid fa-arrow-right text-sm"></i>
+                      </a>
+                  </div>
+              </div>
+          </section>
+
           <!-- SEÇÃO 2: POR QUE VIAJAR COM A WILL TOUR? -->
-          <section id="porque-will-tour" class="w-full bg-slate-50 py-16 flex flex-col items-center">
+          <section id="porque-will-tour" class="w-full bg-slate-50 pt-6 pb-8 flex flex-col items-center">
               
               <!-- Bloco de Texto Editorial em Inter -->
-              <div class="w-full max-w-[960px] px-6 text-center border-t border-b border-dashed border-slate-200 py-10 mb-12">
+              <div class="w-full max-w-[960px] px-6 text-center border-t border-b border-dashed border-slate-200 py-6 mb-6">
                   <h2 class="font-sans font-extrabold text-3xl text-brandNavy mb-5 leading-tight">Por que viajar com a Will Tour?</h2>
                   <p class="font-sans font-medium text-base text-slate-600 leading-relaxed max-w-3xl mx-auto">
                       Viajar deve ser uma experiência para ser aproveitada, não uma preocupação para ser gerenciada. Por isso, acompanhamos cada etapa da sua jornada, do planejamento ao retorno, oferecendo orientação especializada, suporte contínuo e a tranquilidade de ter uma equipe ao seu lado sempre que precisar.
@@ -462,6 +584,21 @@
 
                   </div>
               </div>
+        <!-- 4. COMO FUNCIONA -->
+        <div class="w-full max-w-[1140px] px-6 mt-10 flex flex-col gap-6">
+          <div class="text-center">
+            <span class="text-brandTeal text-xs font-extrabold tracking-widest uppercase bg-teal-50 px-4 py-2 rounded-full border border-teal-100/50">Passo a passo</span>
+            <h2 class="text-brandNavy text-xl md:text-2xl font-extrabold tracking-tight mt-4">Como funciona viajar com a Will Tour</h2>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+            <div class="passo"><span>1</span><b>Conversa</b><p>Pelo WhatsApp ou na loja: destino, datas, quantas pessoas e quanto quer investir.</p></div>
+            <div class="passo"><span>2</span><b>Orçamento</b><p>Montamos opções comparadas, com tudo o que está incluído, sem letra miúda.</p></div>
+            <div class="passo"><span>3</span><b>Contrato e pagamento</b><p>Contrato por escrito e parcelamento em até 12x sem juros.</p></div>
+            <div class="passo"><span>4</span><b>Antes de embarcar</b><p>Conferimos documentos, lembramos do check-in e enviamos tudo organizado.</p></div>
+            <div class="passo"><span>5</span><b>Durante a viagem</b><p>Suporte 24h com gente de verdade, para qualquer imprevisto.</p></div>
+          </div>
+        </div>
+
           </section>
 
           <!-- SEÇÃO 3: NOSSOS SERVIÇOS -->
@@ -470,14 +607,14 @@
               <div class="w-full max-w-[960px] px-6 text-center border-t border-b border-dashed border-slate-200 py-10 mb-12">
                   <h2 class="font-sans font-extrabold text-3xl text-brandNavy mb-5 leading-tight">Nossos serviços</h2>
                   <p class="font-sans font-medium text-base text-slate-600 leading-relaxed max-w-3xl mx-auto">
-                      Da emissão de passagens à gestão de viagens corporativas, oferecemos soluções personalizadas que unem praticidade, economia e eficiência, garantindo mais tranquilidade em cada viagem.
+                      Da passagem ao passeio, montamos a sua viagem de lazer sob medida, com praticidade, economia e a tranquilidade de ter alguém de confiança do seu lado em cada etapa.
                   </p>
               </div>
 
               <div class="w-full max-w-[1140px] px-6 services-container">
                   <div class="flex flex-col gap-4">
                       
-                      <div class="top-grid grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                      <div class="top-grid grid grid-cols-1 gap-4 w-full">
                           
                           <div class="hover-btn premium-btn" onclick="toggleCard(this)">
                               <div class="btn-slider">
@@ -487,18 +624,6 @@
                                   </div>
                                   <div class="btn-back">
                                       <span>Cuidamos de todos os detalhes da sua viagem, reunindo passagens, hospedagem, seguro viagem, traslados e passeios em um único pacote, com pagamento simplificado.</span>
-                                  </div>
-                              </div>
-                          </div>
-
-                          <div class="hover-btn premium-btn" onclick="toggleCard(this)">
-                              <div class="btn-slider">
-                                  <div class="btn-front">
-                                      <i class="fa-solid fa-briefcase"></i>
-                                      <span>Viagens Corporativas</span>
-                                  </div>
-                                  <div class="btn-back">
-                                      <span>Mais controle, economia e eficiência para as viagens corporativas, com gestão de política de viagens, relatórios gerenciais e atendimento de alta performance.</span>
                                   </div>
                               </div>
                           </div>
@@ -620,87 +745,8 @@
               </div>
           </section>
 
-          <!-- SEÇÃO 4: QUEM ATENDEMOS -->
-          <section id="quem-atendemos" class="w-full bg-slate-50 py-16 flex flex-col items-center">
-              <div class="w-full max-w-[1140px] px-6">
-                  
-                  <div class="text-center mb-12">
-                      <h2 class="text-brandNavy text-3xl md:text-4xl font-extrabold tracking-tight relative inline-block">
-                          Quem atendemos
-                          <span class="block w-12 h-1 bg-brandTeal rounded-full mx-auto mt-3"></span>
-                      </h2>
-                  </div>
-
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-                      
-                      <!-- Card 1: Pessoa Física -->
-                      <div class="attendee-card">
-                          <div class="flex flex-col gap-4">
-                              <span class="self-start bg-teal-50 border border-teal-100/50 text-brandTeal text-[10px] font-extrabold tracking-wider uppercase px-3 py-1.5 rounded-full">Pessoa Física</span>
-                              
-                              <div class="flex items-center gap-4">
-                                  <div class="icon-circle w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center text-brandTeal">
-                                      <i class="fa-solid fa-umbrella-beach text-xl"></i>
-                                  </div>
-                                  <h3 class="text-brandNavy text-2xl font-extrabold tracking-tight">Viagens de Lazer</h3>
-                              </div>
-                              
-                              <p class="text-slate-500 text-sm font-medium leading-relaxed">
-                                  Para quem quer viajar em família, curtir a lua de mel dos sonhos ou simplesmente descansar sem preocupação.
-                              </p>
-                              
-                              <div class="highlight-box bg-slate-50 border-l-4 border-brandTeal rounded-r-xl p-4 mt-2 text-xs md:text-sm font-semibold text-brandNavy flex items-start gap-2.5 transition-colors duration-300">
-                                  <i class="fa-solid fa-circle-check text-brandTeal mt-0.5"></i>
-                                  <span>Cuidamos de tudo: passagem, hotel, passeios e seguro. Você só precisa fazer as malas.</span>
-                              </div>
-                          </div>
-
-                          <button 
-                              onclick="showLeisurePage(event)" 
-                              class="card-action-btn mt-6 w-full flex items-center justify-center gap-2 bg-brandNavy hover:bg-brandTeal text-white font-bold text-sm py-4 rounded-xl transition-all duration-300 cursor-pointer"
-                          >
-                              <span>Saiba Mais</span>
-                              <i class="fa-solid fa-arrow-right text-xs"></i>
-                          </button>
-                      </div>
-
-                      <!-- Card 2: Empresas -->
-                      <div class="attendee-card">
-                          <div class="flex flex-col gap-4">
-                              <span class="self-start bg-teal-50 border border-teal-100/50 text-brandTeal text-[10px] font-extrabold tracking-wider uppercase px-3 py-1.5 rounded-full">Empresas</span>
-                              
-                              <div class="flex items-center gap-4">
-                                  <div class="icon-circle w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center text-brandTeal">
-                                      <i class="fa-solid fa-briefcase text-xl"></i>
-                                  </div>
-                                  <h3 class="text-brandNavy text-2xl font-extrabold tracking-tight">Viagens Corporativas</h3>
-                              </div>
-                              
-                              <p class="text-slate-500 text-sm font-medium leading-relaxed">
-                                  Para empresas que precisam de controle, economia e eficiência nas viagens de negócios de seus colaboradores.
-                              </p>
-                              
-                              <div class="highlight-box bg-slate-50 border-l-4 border-brandTeal rounded-r-xl p-4 mt-2 text-xs md:text-sm font-semibold text-brandNavy flex items-start gap-2.5 transition-colors duration-300">
-                                  <i class="fa-solid fa-chart-line text-brandTeal mt-0.5"></i>
-                                  <span>Gestão de política de viagens, relatórios gerenciais e atendimento dedicado para sua equipe.</span>
-                              </div>
-                          </div>
-
-                          <button 
-                              onclick="showCorporatePage(event)" 
-                              class="card-action-btn mt-6 w-full flex items-center justify-center gap-2 bg-brandNavy hover:bg-brandTeal text-white font-bold text-sm py-4 rounded-xl transition-all duration-300 cursor-pointer"
-                          >
-                              <span>Saiba Mais</span>
-                              <i class="fa-solid fa-arrow-right text-xs"></i>
-                          </button>
-                      </div>
-
-                  </div>
-              </div>
-          </section>
-
           <!-- SEÇÃO 5: AVALIAÇÕES DOS CLIENTES -->
-          <section id="avaliacoes" class="w-full bg-white py-16 flex flex-col items-center">
+          <section id="avaliacoes" class="w-full bg-white pt-4 pb-12 flex flex-col items-center">
               <div class="w-full max-w-[1140px] px-6 flex flex-col items-center gap-10">
                   
                   <div class="bg-white border border-slate-200/80 rounded-full px-5 py-2 flex items-center gap-3 shadow-sm">
@@ -834,7 +880,7 @@
               <!-- Coluna 1: Cadastur Oficial -->
               <div class="flex flex-col items-center md:items-start">
                   <img 
-                      src="https://drive.google.com/thumbnail?id=1bmevpimE60RymTV-SbeyMaf5Q9GQmsXr&sz=w500" 
+                      src="img/site/1bmevpimE60RymTV-SbeyMaf5Q9GQmsXr.webp" 
                       alt="Ministério do Turismo - CADASTUR" 
                       class="w-48 sm:w-52 h-auto object-contain hover:scale-105 transition-transform duration-300"
                   >
@@ -843,7 +889,7 @@
               <!-- Coluna 2: Logo Oficial em PNG Transparente e Endereço -->
               <div class="flex flex-col items-center gap-3">
                   <img 
-                      src="https://drive.google.com/thumbnail?id=1ifVGnIZV6_0btcCbRdbY15WjkzhRTo1N&sz=w500" 
+                      src="img/site/1ifVGnIZV6_0btcCbRdbY15WjkzhRTo1N.webp" 
                       alt="Will Tour SRS" 
                       class="h-12 object-contain"
                   >

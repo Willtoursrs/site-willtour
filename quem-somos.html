@@ -7,6 +7,7 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      if (location.protocol === 'file:' || /^(localhost|127\.0\.0\.1)$/.test(location.hostname)) { window['ga-disable-G-P6GJ9T2P6V'] = true; } // testes locais não contam
       gtag('config', 'G-P6GJ9T2P6V');
     </script>
     <meta charset="UTF-8">
@@ -25,7 +26,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Theme Style -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=20261126b">
     
     <!-- Tailwind CSS para estilização de alto nível -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -74,7 +75,7 @@
             <!-- Logo Corporativo com a transparência do Drive -->
             <a href="index.html" class="flex items-center gap-2">
                 <img 
-                    src="https://drive.google.com/thumbnail?id=1ifVGnIZV6_0btcCbRdbY15WjkzhRTo1N&sz=w500" 
+                    src="img/site/1ifVGnIZV6_0btcCbRdbY15WjkzhRTo1N.webp" 
                     alt="Will Tour SRS" 
                     class="h-10 sm:h-12 object-contain"
                 >
@@ -82,10 +83,22 @@
 
             <!-- Menu de Links do Site Organizado na Nova Ordem -->
             <nav class="hidden md:flex items-center gap-8 font-semibold text-sm">
+                <a href="index.html">Início</a>
                 <a href="quem-somos.html" id="#quem-somos">Quem Somos</a>
-                <a href="#quem-atendemos" onclick="showHomePage(event, 'quem-atendemos')" target="_self" class="text-slate-200 hover:text-brandTeal transition-colors">Quem Atendemos</a>
-                <a href="#nossos-servicos" onclick="showHomePage(event, 'nossos-servicos')" target="_self" class="text-slate-200 hover:text-brandTeal transition-colors">Nossos Serviços</a>
-               <a href="ofertas.html" id="#ofertas" >Ofertas</a>
+               <div class="menu-drop">
+                   <a href="javascript:void(0)" id="#ofertas" style="cursor:default">Promoções <i class="fa-solid fa-chevron-down text-[10px] ml-0.5"></i></a>
+                   <div class="menu-drop-lista">
+                     <a href="circuitos.html"><i class="fa-solid fa-earth-europe"></i>Grupos - Circuitos</a>
+                     <a href="ofertas.html"><i class="fa-solid fa-tags"></i>Promoções</a>
+                   </div>
+                 </div>
+                 <div class="menu-drop">
+                   <a href="javascript:void(0)" style="cursor:default">Blog de Dicas <i class="fa-solid fa-chevron-down text-[10px] ml-0.5"></i></a>
+                   <div class="menu-drop-lista">
+                     <a href="dicas.html"><i class="fa-solid fa-lightbulb"></i>Dicas para sua viagem</a>
+                     <a href="feriados.html"><i class="fa-regular fa-calendar"></i>Próximos feriados</a>
+                   </div>
+                 </div>
             </nav>
 
             <!-- Botão Faça um orçamento Rápido -->
@@ -107,32 +120,197 @@
 
         <!-- Menu Retrátil no Mobile Organizado na Nova Ordem -->
         <div id="mobile-nav" class="hidden md:hidden bg-brandNavy border-t border-slate-800 px-4 py-4 space-y-3 font-semibold text-sm">
+            <a href="index.html" class="block text-slate-200 hover:text-brandTeal py-1">Início</a>
             <a href="quem-somos.html" id="quem-somos" target="_self" class="block text-slate-200 hover:text-brandTeal py-1">Quem Somos</a>
-            <a href="#nossos-servicos" onclick="showHomePage(event, 'nossos-servicos')" target="_self" class="block text-slate-200 hover:text-brandTeal py-1">Nossos Serviços</a>
-            <a href="#quem-atendemos" onclick="showHomePage(event, 'quem-atendemos')" target="_self" class="block text-slate-200 hover:text-brandTeal py-1">Quem Atendemos</a>
-            <a href="ofertas.html" id="ofertas" class="block text-slate-200 hover:text-brandTeal py-1">Ofertas</a>
+            <a href="circuitos.html" class="block text-slate-200 hover:text-brandTeal py-1">Grupos - Circuitos</a>
+            <a href="ofertas.html" id="ofertas" class="block text-slate-200 hover:text-brandTeal py-1">Promoções</a>
+            <a href="dicas.html" class="block text-slate-200 hover:text-brandTeal py-1">Dicas para sua viagem</a>
+            <a href="feriados.html" class="block text-slate-200 hover:text-brandTeal py-1">Próximos feriados</a>
         </div>
     </header>
 
     <!-- CONTAINER DA PÁGINA "QUEM SOMOS" -->
-    <div id="about-us-content" class="w-full bg-slate-50 py-16 transition-opacity duration-500">
+    <div id="about-us-content" class="w-full bg-slate-50 pt-5 pb-16 transition-opacity duration-500">
         <div class="w-full max-w-[1140px] px-4 md:px-8 mx-auto flex flex-col">
             
             <button 
                 onclick="showHomePage(event)" 
-                class="self-start inline-flex items-center gap-2 text-brandTeal hover:text-brandNavy font-extrabold text-sm mb-8 transition-colors duration-300"
+                class="self-start inline-flex items-center gap-2 text-brandTeal hover:text-brandNavy font-extrabold text-sm mb-4 transition-colors duration-300"
             >
                 <i class="fa-solid fa-arrow-left"></i>
                 <span>Voltar para a Página Inicial</span>
             </button>
 
-            <div class="bg-brandNavy text-white rounded-3xl p-8 md:p-14 text-center shadow-md flex flex-col items-center gap-4 mb-8 w-full">
+            <div class="bg-brandNavy text-white rounded-3xl px-6 py-6 md:px-10 md:py-8 text-center shadow-md flex flex-col items-center gap-2 mb-5 w-full">
                 <span class="bg-teal-500/10 text-brandTeal text-xs font-extrabold tracking-wider uppercase px-4 py-2 rounded-full border border-teal-500/20">Nossa História</span>
-                <h1 class="font-sans font-extrabold text-3xl md:text-5xl tracking-tight leading-tight max-w-4xl mt-2">
+                <h1 class="font-sans font-extrabold text-2xl md:text-4xl tracking-tight leading-tight max-w-4xl mt-1">
                     Quem Somos
                 </h1>
-                <p class="text-slate-300 text-sm md:text-lg max-w-2xl font-medium mt-2 leading-relaxed">
-                </p>
+                            </div>
+
+            <div class="mb-12">
+        <!-- 1. SOMOS DAQUI: FOTOS DA LOJA -->
+        <section class="flex flex-col gap-6">
+          <div class="text-center">
+            <span class="text-brandTeal text-xs font-extrabold tracking-widest uppercase bg-teal-50 px-4 py-2 rounded-full border border-teal-100/50">Somos daqui</span>
+            <h2 class="text-brandNavy text-2xl md:text-3xl font-extrabold tracking-tight mt-4">Uma agência de verdade, no Centro de Santa Rita</h2>
+            <p class="text-slate-500 text-sm md:text-base max-w-2xl mx-auto mt-2">Passe para tomar um café e conversar sobre a sua próxima viagem. Atendimento presencial ou pelo WhatsApp, como você preferir.</p>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 md:grid-rows-2 gap-4">
+            <div class="relative col-span-2 md:row-span-2 min-h-[220px] md:min-h-[380px] rounded-2xl overflow-hidden shadow-sm"><img src="img/loja/fachada.jpg" alt="Fachada da Will Tour no Centro de Santa Rita do Sapucaí" loading="lazy" class="absolute inset-0 w-full h-full object-cover" style="object-position:50% 22%"></div>
+            <div class="relative min-h-[180px] rounded-2xl overflow-hidden shadow-sm"><img src="img/loja/espaco-atendimento.jpg" alt="Espaço de atendimento da Will Tour" loading="lazy" class="absolute inset-0 w-full h-full object-cover" style="object-position:50% 60%"></div>
+            <div class="relative min-h-[180px] rounded-2xl overflow-hidden shadow-sm"><img src="img/loja/will-egito.jpg?v=2" alt="Will nas pirâmides de Gizé, no Egito" loading="lazy" class="absolute inset-0 w-full h-full object-cover" style="object-position:50% 30%"></div>
+            <div class="relative min-h-[180px] rounded-2xl overflow-hidden shadow-sm"><img src="img/loja/interior-agencia.jpg" alt="Interior da agência Will Tour" loading="lazy" class="absolute inset-0 w-full h-full object-cover" style="object-position:50% 52%"></div>
+            <div class="relative min-h-[180px] rounded-2xl overflow-hidden shadow-sm"><img src="img/loja/lilian.jpg" alt="Lilian, sócia da Will Tour, em Roma" loading="lazy" class="absolute inset-0 w-full h-full object-cover" style="object-position:80% 60%"></div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-white rounded-2xl border border-slate-200/70 p-5 flex gap-4 items-center shadow-sm">
+              <i class="fa-solid fa-location-dot text-brandTeal text-xl w-10 text-center shrink-0"></i>
+              <div><p class="font-extrabold text-brandNavy">Endereço</p><p class="text-slate-600 text-sm">Rua Coronel Francisco Palma, 27 - Centro<br>Santa Rita do Sapucaí/MG</p></div>
+            </div>
+            <div class="bg-white rounded-2xl border border-slate-200/70 p-5 flex gap-4 items-center shadow-sm">
+              <i class="fa-regular fa-clock text-brandTeal text-xl w-10 text-center shrink-0"></i>
+              <div><p class="font-extrabold text-brandNavy">Horário</p><p class="text-slate-600 text-sm">Seg a sex: 9h00 às 18h30<br>Sábado: 9h30 às 15h00</p></div>
+            </div>
+            <div class="bg-white rounded-2xl border border-slate-200/70 p-5 flex gap-4 items-center shadow-sm">
+              <img src="img/site/1bmevpimE60RymTV-SbeyMaf5Q9GQmsXr.webp" alt="Selo Cadastur - Ministério do Turismo" class="w-36 h-auto object-contain object-left shrink-0 ml-1 -mr-14">
+              <div><p class="font-extrabold text-brandNavy">Agência regularizada</p><p class="text-slate-600 text-sm">Ministério do Turismo<br>Cadastur<br>CNPJ 53.973.458/0001-93</p></div>
+            </div>
+          </div>
+
+<div id="avaliacoes" class="w-full bg-white rounded-3xl border border-slate-200/60 shadow-sm py-10 flex flex-col items-center">
+              <div class="w-full max-w-[1140px] px-6 flex flex-col items-center gap-10">
+                  
+                  <div class="bg-white border border-slate-200/80 rounded-full px-5 py-2 flex items-center gap-3 shadow-sm">
+                      <i class="fa-brands fa-google text-xl text-[#4285F4]"></i>
+                      <span class="text-xs font-bold text-brandNavy">Avaliações de Clientes</span>
+                      <div class="flex gap-0.5 text-brandGold text-[10px]">
+                          <i class="fa-solid fa-star"></i>
+                          <i class="fa-solid fa-star"></i>
+                          <i class="fa-solid fa-star"></i>
+                          <i class="fa-solid fa-star"></i>
+                          <i class="fa-solid fa-star"></i>
+                      </div>
+                  </div>
+
+                  <div class="text-center">
+                      <h2 class="text-brandNavy text-3xl md:text-4xl font-extrabold tracking-tight">O que dizem os nossos viajantes</h2>
+                      <p class="text-slate-500 font-medium text-sm md:text-base mt-2">A prova de que cada roteiro é planejado com excelência e carinho.</p>
+                  </div>
+
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+                      
+                      <!-- Depoimento 1 -->
+                      <div class="bg-white rounded-2xl p-6 border border-slate-200/50 shadow-sm flex flex-col justify-between h-full relative group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                          <i class="fa-brands fa-google absolute top-6 right-6 text-slate-200 group-hover:text-brandTeal transition-colors text-lg"></i>
+                          <div>
+                              <div class="flex items-center gap-3 mb-4">
+                                  <div class="w-11 h-11 rounded-full bg-teal-500 text-white flex items-center justify-center font-bold text-sm">WC</div>
+                                  <div>
+                                      <h4 class="text-brandNavy font-bold text-sm">William Carvalho</h4>
+                                      <span class="text-slate-400 text-xs flex items-center gap-1">
+                                          <i class="fa-solid fa-circle-check text-emerald-500"></i> Viajante Verificado
+                                      </span>
+                                  </div>
+                              </div>
+                              <div class="flex gap-1 text-brandGold mb-3 text-xs">
+                                  <i class="fa-solid fa-star"></i>
+                                  <i class="fa-solid fa-star"></i>
+                                  <i class="fa-solid fa-star"></i>
+                                  <i class="fa-solid fa-star"></i>
+                                  <i class="fa-solid fa-star"></i>
+                              </div>
+                              <p class="text-slate-600 text-sm leading-relaxed italic mb-4">
+                                  "Toda a experiência foi excelente. São atenciosos e explicam tudo com detalhes para que não haja dúvidas ao negociar a viagem. Fazem lembretes de check in dos voos e ficam de plantão caso algum perrengue de viagem surja. Sem dúvidas viajarei com eles novamente."
+                              </p>
+                          </div>
+                          <div class="bg-slate-50 border border-slate-100 rounded-xl p-3 flex items-center gap-2 text-xs font-semibold text-brandNavy">
+                              <i class="fa-solid fa-location-dot text-brandTeal"></i>
+                              <span>Viajou para: Buenos Aires — Argentina</span>
+                          </div>
+                      </div>
+
+                      <!-- Depoimento 2 -->
+                      <div class="bg-white rounded-2xl p-6 border border-slate-200/50 shadow-sm flex flex-col justify-between h-full relative group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                          <i class="fa-brands fa-google absolute top-6 right-6 text-slate-200 group-hover:text-brandTeal transition-colors text-lg"></i>
+                          <div>
+                              <div class="flex items-center gap-3 mb-4">
+                                  <div class="w-11 h-11 rounded-full bg-brandNavy text-white flex items-center justify-center font-bold text-sm">PS</div>
+                                  <div>
+                                      <h4 class="text-brandNavy font-bold text-sm">Patrícia Silva</h4>
+                                      <span class="text-slate-400 text-xs flex items-center gap-1">
+                                          <i class="fa-solid fa-circle-check text-emerald-500"></i> Viajante Verificada
+                                      </span>
+                                  </div>
+                              </div>
+                              <div class="flex gap-1 text-brandGold mb-3 text-xs">
+                                  <i class="fa-solid fa-star"></i>
+                                  <i class="fa-solid fa-star"></i>
+                                  <i class="fa-solid fa-star"></i>
+                                  <i class="fa-solid fa-star"></i>
+                                  <i class="fa-solid fa-star"></i>
+                              </div>
+                              <p class="text-slate-600 text-sm leading-relaxed italic mb-4">
+                                  "Atendimento rápido e eficiente, o melhor preço de passagens aéreas ( menor preço em vôo direto que o vôo com conexão). Hotel bom muito bem localizado, não tivemos nenhum contratempo. Viagem dos sonhos perfeita!"
+                              </p>
+                          </div>
+                          <div class="bg-slate-50 border border-slate-100 rounded-xl p-3 flex items-center gap-2 text-xs font-semibold text-brandNavy">
+                              <i class="fa-solid fa-location-dot text-brandTeal"></i>
+                              <span>Viajou para: Nova York — Estados Unidos</span>
+                          </div>
+                      </div>
+
+                      <!-- Depoimento 3 -->
+                      <div class="bg-white rounded-2xl p-6 border border-slate-200/50 shadow-sm flex flex-col justify-between h-full relative group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                          <i class="fa-brands fa-google absolute top-6 right-6 text-slate-200 group-hover:text-brandTeal transition-colors text-lg"></i>
+                          <div>
+                              <div class="flex items-center gap-3 mb-4">
+                                  <div class="w-11 h-11 rounded-full bg-[#e5a93b] text-white flex items-center justify-center font-bold text-sm">GF</div>
+                                  <div>
+                                      <h4 class="text-brandNavy font-bold text-sm">Guilherme Franco</h4>
+                                      <span class="text-slate-400 text-xs flex items-center gap-1">
+                                          <i class="fa-solid fa-circle-check text-emerald-500"></i> Viajante Verificado
+                                      </span>
+                                  </div>
+                              </div>
+                              <div class="flex gap-1 text-brandGold mb-3 text-xs">
+                                  <i class="fa-solid fa-star"></i>
+                                  <i class="fa-solid fa-star"></i>
+                                  <i class="fa-solid fa-star"></i>
+                                  <i class="fa-solid fa-star"></i>
+                                  <i class="fa-solid fa-star"></i>
+                              </div>
+                              <p class="text-slate-600 text-sm leading-relaxed italic mb-4">
+                                  "Ótimo atendimento, Will muito atencioso e atento às alterações dos voos de última hora e suporte full time. Recomendo fortemente."
+                              </p>
+                          </div>
+                          <div class="bg-slate-50 border border-slate-100 rounded-xl p-3 flex items-center gap-2 text-xs font-semibold text-brandNavy">
+                              <i class="fa-solid fa-location-dot text-brandTeal"></i>
+                              <span>Viajou para: Estocolmo — Suécia</span>
+                          </div>
+                      </div>
+
+                  </div>
+
+                  <a 
+                      href="https://www.google.com/search?q=Will+Tour+SRS+-+Ag%C3%AAncia+de+viagens+em+Santa+Rita+do+Sapuca%C3%AD&oq=will&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgwIARBFGDkYsQMYgAQyBggCEEUYOzIGCAMQRRhBMgYIBBBFGD0yBggFEEUYPTIGCAYQRRhBMgYIBxBFGEHSAQc1MDJqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8#mpd=~14989499323653630823/customers/reviews" 
+                      target="_blank" 
+                      class="inline-flex items-center gap-2 text-brandTeal hover:text-brandNavy font-extrabold text-sm transition-colors duration-300"
+                  >
+                      <span>Ver mais avaliações no Google</span>
+                      <i class="fa-solid fa-arrow-right text-xs"></i>
+                  </a>
+
+              </div>
+          </div>
+
+          <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+            <iframe title="Mapa da Will Tour" src="https://www.google.com/maps?q=Rua+Coronel+Francisco+Palma,+27,+Santa+Rita+do+Sapuca%C3%AD+-+MG&output=embed" class="w-full h-[280px] border-0" loading="lazy"></iframe>
+          </div>
+        </section>
+
             </div>
 
             <div class="bg-white rounded-3xl border border-slate-200/60 p-6 md:p-12 shadow-md flex flex-col gap-12">
@@ -147,27 +325,29 @@
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 border-t border-dashed border-slate-200 pt-10">
                     <div class="lg:col-span-12 flex flex-col items-center text-center">
-                        <img 
-                            src="https://drive.google.com/thumbnail?id=1aRNZThS0f46scqvJNLkc0404aP-eHZTe&sz=w500" 
-                            alt="Willian Pimentel" 
-                            class="w-32 h-32 md:w-56 md:h-56 rounded-full object-cover border-4 border-brandTeal shadow-lg mb-6 hover:scale-105 transition-transform duration-300"
-                        >
-                        <h2 class="font-serif font-bold text-2xl md:text-3xl text-brandNavy mb-4 tracking-tight">Willian Pimentel e a história por trás da agência</h2>
-                        <p class="text-slate-600 text-base leading-relaxed max-w-3xl">
-                            À frente da Will Tour SRS está <strong>Willian Pimentel</strong>, profissional do turismo <strong>há mais de 6 anos</strong>, com passagens por destinos nos cinco continentes e experiência acumulada em situações que vão muito além do comum.
+                        
+                        <h2 class="font-serif font-bold text-2xl md:text-3xl text-brandNavy mb-4 tracking-tight">A história por trás da agência</h2>
+                        <p class="text-left self-stretch w-full text-slate-600 text-base leading-relaxed">
+                            Antes de empreender, <strong>Lilian Valentim</strong> trabalhava com tecnologia, desenvolvendo sites para empresas em uma agência de publicidade e propaganda. Ao juntar essa experiência em tecnologia e comunicação com a vivência de <strong>Willian Pimentel</strong> no turismo, nasceu a Will Tour, em Santa Rita do Sapucaí.
+                        </p>
+                        <p class="text-left self-stretch w-full text-slate-600 text-base leading-relaxed mt-4">
+                            Em 2024, a Will Tour começou on-line, atendendo familiares e amigos. Lilian assumiu o marketing, o site e a marca, e construiu do zero a presença digital da agência. Willian, que atua no turismo <strong>há mais de 6 anos</strong>, assumiu o planejamento das viagens e o atendimento aos clientes. Com o crescimento, ficou claro que era hora de ter um espaço para receber os clientes, e em setembro de 2025 foi inaugurada a loja física na Rua Coronel Francisco Palma, 27, Centro, ao lado do Santuário.
                         </p>
                     </div>
 
                     <div class="lg:col-span-5 bg-brandNavy text-white rounded-2xl p-6 md:p-8 flex flex-col justify-between relative overflow-hidden shadow-lg border border-slate-800">
-                        <div class="absolute -right-8 -bottom-8 opacity-5 text-9xl">
-                            <i class="fa-solid fa-passport"></i>
-                        </div>
                         <div>
-                            <span class="bg-brandTeal text-white text-[10px] font-extrabold tracking-wider uppercase px-3 py-1 rounded-full">Experiência Extrema</span>
+                            <span class="bg-brandTeal text-white text-[10px] font-extrabold tracking-wider uppercase px-3 py-1 rounded-full">Experiência na prática</span>
                             <h3 class="font-serif font-bold text-xl text-brandGold mt-4 mb-3">Suporte Real e Resiliência</h3>
                             <p class="text-slate-200 text-sm leading-relaxed font-medium">
-                                "Mesmo diante de um cenário de conflito e instabilidade global, conduzir e garantir o retorno seguro de dezenas de brasileiros é o que define o verdadeiro significado de suporte especialista."
+                                "Mesmo diante de um cenário de conflito e instabilidade, estar na operação e no suporte para que dezenas de brasileiros voltassem para casa em segurança é o que define o verdadeiro significado de suporte especialista."
                             </p>
+                            <ul class="mt-6 flex flex-col gap-3 text-sm font-semibold text-white">
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-headset text-brandTeal w-5 text-center"></i>Suporte 24 horas durante a viagem</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-plane-circle-exclamation text-brandTeal w-5 text-center"></i>Voo cancelado ou remarcação de última hora</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-money-bill-transfer text-brandTeal w-5 text-center"></i>Reembolso de passagens</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-suitcase-rolling text-brandTeal w-5 text-center"></i>Mala extraviada ou danificada</li>
+                            </ul>
                         </div>
                         <div class="mt-6 flex items-center gap-3 border-t border-slate-800 pt-4">
                             <i class="fa-solid fa-shield-halved text-brandTeal text-xl"></i>
@@ -177,13 +357,13 @@
 
                     <div class="lg:col-span-7 flex flex-col gap-4 text-slate-600 text-sm md:text-base leading-relaxed">
                         <p>
-                            Entre 2021 e 2024, durante um dos períodos mais delicados da história recente de Israel, Willian conduziu diversas peregrinações ao país, mantendo suporte total aos viajantes brasileiros em todas as etapas. Mesmo diante de um cenário de conflito e instabilidade, todos os clientes tiveram acompanhamento completo e retornaram ao Brasil sem nenhum problema. Essa experiência, rara no mercado, define bem o que significa ter um especialista do seu lado quando as circunstâncias exigem mais do que um simples atendimento.
+                            Entre 2021 e 2024, durante um dos períodos mais delicados da história recente de Israel, Willian atuou na operação de diversas peregrinações ao país, cuidando de reservas, remarcações e do suporte aos viajantes brasileiros em todas as etapas. Mesmo diante de um cenário de conflito e instabilidade, todos os clientes tiveram acompanhamento completo e retornaram ao Brasil sem nenhum problema. Essa experiência, rara no mercado, mostra o que significa ter um especialista do seu lado quando as circunstâncias exigem mais do que um simples atendimento.
                         </p>
                         <p>
-                            Ao longo da trajetória, foram dezenas de grupos internacionais conduzidos para destinos como Itália, Grécia, Turquia, Egito, Marrocos, Londres, Croácia, Alemanha, Geórgia, Armênia e Azerbaijão, além de grupos nacionais para Foz do Iguaçu, Aparecida do Norte e Canção Nova. Além disso, destacamos luas de mel personalizadas pelo Nordeste brasileiro e pela Europa, viagens em família para a Disney (Orlando e Paris), Eurotrips sob medida e a gestão completa de viagens corporativas de alta performance.
+                            Ao longo da trajetória, participou da operação de dezenas de grupos internacionais para destinos como Itália, Grécia, Turquia, Egito, Marrocos, Londres, Croácia, Alemanha, Geórgia, Armênia e Azerbaijão, além de grupos nacionais para Foz do Iguaçu, Aparecida do Norte e Canção Nova. Também planejou luas de mel personalizadas pelo Nordeste brasileiro e pela Europa, viagens em família para a Disney (Orlando e Paris) e Eurotrips sob medida.
                         </p>
                         <p class="font-medium text-brandNavy">
-                            Essa bagagem se traduz no dia a dia da agência: na habilidade de resolver uma remarcação de última hora, no suporte impecável para reembolso de passagens, no acompanhamento em casos de mala extraviada ou danificada e no atendimento 24 horas para clientes e empresas parceiras.
+                            Essa bagagem se traduz no dia a dia da agência: na habilidade de resolver uma remarcação de última hora, no suporte impecável para reembolso de passagens, no acompanhamento em casos de mala extraviada ou danificada e no atendimento 24 horas para nossos clientes.
                         </p>
                     </div>
                 </div>
@@ -222,15 +402,15 @@
                             </div>
                             <h3 class="font-serif font-bold text-lg text-brandNavy">Nossos Valores</h3>
                             <p class="text-slate-600 text-xs md:text-sm leading-relaxed mb-2">
-                                Atuamos com base na transparência e no compromisso. Nossos valores inegociáveis guiam nosso comportamento:
+                                Mais do que vender viagens, cuidamos de pessoas. Estes valores guiam cada atendimento e são inegociáveis:
                             </p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-red-50 text-red-600 border border-red-100 text-[10px] md:text-xs font-bold px-2.5 py-1 rounded-full">Paixão</span>
-                                <span class="bg-amber-50 text-amber-600 border border-amber-100 text-[10px] md:text-xs font-bold px-2.5 py-1 rounded-full">Excelência</span>
-                                <span class="bg-emerald-50 text-emerald-600 border border-emerald-100 text-[10px] md:text-xs font-bold px-2.5 py-1 rounded-full">Segurança</span>
-                                <span class="bg-teal-50 text-teal-600 border border-teal-100 text-[10px] md:text-xs font-bold px-2.5 py-1 rounded-full">Compromisso</span>
-                                <span class="bg-indigo-50 text-indigo-600 border border-indigo-100 text-[10px] md:text-xs font-bold px-2.5 py-1 rounded-full">Inovação</span>
-                                <span class="bg-sky-50 text-sky-600 border border-sky-100 text-[10px] md:text-xs font-bold px-2.5 py-1 rounded-full">Colaboração</span>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="bg-red-50 text-red-600 border border-red-100 text-[10px] md:text-[11px] font-bold px-2 py-1 rounded-full whitespace-nowrap">Transparência</span>
+                                <span class="bg-emerald-50 text-emerald-600 border border-emerald-100 text-[10px] md:text-[11px] font-bold px-2 py-1 rounded-full whitespace-nowrap">Atendimento próximo</span>
+                                <span class="bg-amber-50 text-amber-600 border border-amber-100 text-[10px] md:text-[11px] font-bold px-2 py-1 rounded-full whitespace-nowrap">Segurança</span>
+                                <span class="bg-teal-50 text-teal-600 border border-teal-100 text-[10px] md:text-[11px] font-bold px-2 py-1 rounded-full whitespace-nowrap">Viagem sob medida</span>
+                                <span class="bg-indigo-50 text-indigo-600 border border-indigo-100 text-[10px] md:text-[11px] font-bold px-2 py-1 rounded-full whitespace-nowrap">Compromisso</span>
+                                <span class="bg-sky-50 text-sky-600 border border-sky-100 text-[10px] md:text-[11px] font-bold px-2 py-1 rounded-full whitespace-nowrap">Confiança</span>
                             </div>
                         </div>
 
@@ -238,6 +418,7 @@
                 </div>
 
             </div>
+
 
             <button 
                 onclick="showHomePage(event)" 
@@ -257,7 +438,7 @@
             <!-- Coluna 1: Cadastur Oficial -->
             <div class="flex flex-col items-center md:items-start">
                 <img 
-                    src="https://drive.google.com/thumbnail?id=1bmevpimE60RymTV-SbeyMaf5Q9GQmsXr&sz=w500" 
+                    src="img/site/1bmevpimE60RymTV-SbeyMaf5Q9GQmsXr.webp" 
                     alt="Ministério do Turismo - CADASTUR" 
                     class="w-48 sm:w-52 h-auto object-contain hover:scale-105 transition-transform duration-300"
                 >
@@ -266,7 +447,7 @@
             <!-- Coluna 2: Logo Oficial em PNG Transparente e Endereço -->
             <div class="flex flex-col items-center gap-3">
                 <img 
-                    src="https://drive.google.com/thumbnail?id=1ifVGnIZV6_0btcCbRdbY15WjkzhRTo1N&sz=w500" 
+                    src="img/site/1ifVGnIZV6_0btcCbRdbY15WjkzhRTo1N.webp" 
                     alt="Will Tour SRS" 
                     class="h-12 object-contain"
                 >
